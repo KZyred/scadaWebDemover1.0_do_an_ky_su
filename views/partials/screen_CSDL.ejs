@@ -1,0 +1,38 @@
+<!-- //////////////Code cho màn hình 2////////////// -->
+<div id="Screen_CSDL">
+    <!-- <p>Đây là màn 2</p> -->
+    <!--Table display-->
+    <div id="div_Table_01">
+        <table id="table_01">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>NUMERICID</th>
+                    <th>VALUE</th>
+                    <th>TIMESTAMP</th>
+                    <th>QUALITY</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!--Date time piker-->
+    <label id="lb_Search_Start">Từ:</label>
+    <input id="dtpk_Search_Start" type="datetime-local">
+    <label id="lb_Search_End">Đến:</label>
+    <input id="dtpk_Search_End" type="datetime-local">
+    <!--Nút tìm kiếm-->
+    <button id="btt_Search" class="btn" onclick="fn_SQL_By_Time();console.log('hi')"></i> TÌM KIẾM</button>
+    <button  id="btt_Refresh" class="btn" onclick="fn_Table01_SQL_Show();console.log('hello')"></i> Refresh</button>
+</div>
+
+<script>
+    let width = screen.width;
+    console.log(width);
+    if (width < 580) {
+        width = width - 72
+    } else {
+        width = width - 215
+    }
+    document.getElementById("Screen_CSDL").style.width = width
+</script>

@@ -1,0 +1,15 @@
+<!-- //////////////Code cho màn hình 3////////////// -->
+<div id="Screen_3">
+    <!-- <p>Đây là màn 3</p> -->
+</div>
+<script>
+    let width = screen.width;
+    console.log(width);
+    if (width < 580) {
+        width = width - 72
+    } else {
+        width = width - 215
+    }
+    document.getElementById("Screen_3").style.width = width
+</script>
+<script type="module" src="render3D/JS/indexScreen.js" defer="defer"></script>

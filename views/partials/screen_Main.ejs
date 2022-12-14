@@ -1,0 +1,67 @@
+<!-- //////////////Code cho màn hình chính////////////// -->
+<div id="Screen_Main" >
+    <div class="grid wide">
+        <div class="row column-reverse">
+            <div class="col l-7 m-10 c-12 ">
+                <div class="row">
+                    <div class="container_CĐ col l-6 m-6 c-10">
+                        <div class="header" id="Mau_Auto">
+                            Chế độ hoạt động: Maunual
+                        </div>
+                        <div class="container_button_CĐ">
+                            <!-- div btn khoảng màu di chuyển giữa hai button -->
+                            <div id="btn_CĐ"></div>
+                            <button type="button" class="toggle-btn_CĐ" onclick="leftClick()">Maunual</button>
+                            <button type="button" class="toggle-btn_CĐ" onclick="rightClick()">Auto</button>
+                        </div>
+                    </div>
+                    <div class="container_ĐK col l-5 m-5 c-10">
+                        <div class="header">
+                            <h2>Điều khiển Auto</h2>
+                        </div>
+                        <div class="container_button_ĐK">
+                            <button disabled class="button_style_ĐK" id="start">Start</button>
+                            <button disabled class="button_style_ĐK" id="stop">Stop</button>
+                            <button disabled class="button_style_ĐK" id="reset">Reset</button>
+                        </div>
+                        <div id="trangthai">
+                            <p>Not Running</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container_TTT">
+                        <div class="header">
+                            <h2>Trạng thái các trạm</h2>
+                        </div>
+                        <div class="container_button_TTT">
+                            <button class="button_style_TTT" id="tram01">Trạm 01</button>
+                            <button class="button_style_TTT" id="tram02">Trạm 02</button>
+                            <button class="button_style_TTT" id="tram03">Trạm 03</button>
+                            <button class="button_style_TTT" id="tram04">Trạm 04</button>
+                            <button class="button_style_TTT" id="tram05">Trạm 05</button>
+                            <button class="button_style_TTT" id="tram06">Trạm 06</button>
+                            <button class="button_style_TTT" id="tram07">Trạm 07+08</button>
+                            <button class="button_style_TTT" id="tram09">Trạm 09</button>
+                            <button class="button_style_TTT" id="tram10">Trạm 10</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-4 m-10 c-12">
+                <canvas class="_3dHome"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let width = screen.width;
+    console.log(width);
+    if (width < 580){
+        width = width - 72
+    }else {
+        width = width - 215
+    }
+    document.getElementById("Screen_Main").style.width = width
+</script>
+<script type="module" src="render3D/JS/indexHome.js" defer="defer"></script>

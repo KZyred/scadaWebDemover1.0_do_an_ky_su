@@ -1,0 +1,13 @@
+/*Màn hình 3*/
+#Screen_3 {
+    position: absolute;
+    left: 220px;
+    height: 100%;
+    width: 100%;
+    background-color: #9a9a9a;
+}
+@media (width < 580px) {
+    #Screen_3 {
+        left: 80px;
+    }
+}

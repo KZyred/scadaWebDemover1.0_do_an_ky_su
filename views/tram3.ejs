@@ -1,0 +1,19 @@
+<html>
+    <!-- Phần Header của Website -->
+    <%- include('./partials/header'); %>
+
+    <!-- Phần thân của website -->
+    <body>
+        <!-- getclient from server tạo ra client để tránh trùng khi truy cập MQTT -->
+        <p id="client" style="display: none;">
+            <%= name %>
+        </p>
+
+        <%- include('./partials/sidebar'); %>
+        <!-- //////////////Code cho màn hình 1////////////// -->
+        <%- include('./partials/screen_3'); %>
+        <!-- //loading -->
+        <div class="loadingio-spinner-double-ring-nzbwkaq6i3" id ="hiden-loading"><div class="ldio-58h4ty3tidc"><div></div><div></div><div><div></div></div><div><div></div></div></div></div>
+    </body>
+    <script src="js/FC6_Screen3.js"></script>
+</html>

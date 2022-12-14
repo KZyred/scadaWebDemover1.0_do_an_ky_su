@@ -1,0 +1,86 @@
+<!-- //////////////Code cho màn hình 1////////////// -->
+<div id="Screen_1">
+    <div class="grid wide">
+        <div class="row column-reverse">
+            <div class="col l-7 m-10 c-12 ">
+                <div class="container_Tram1">
+                    <div id="header">
+                        <h2>Trạm 1 : Trạm Cấp Phôi</h2>
+                    </div>
+                    <div class="Tram1">
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (2B2) CB Xy Lanh Thu
+                                <span class="dot" id="_2B2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B1) CB Xy Lanh Đẩy
+                                <span class="dot" id="_2B1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B3) CB Áp Suất
+                                <span class="dot" id="_2B3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B5) CB Vị Trí Nhả Phôi
+                                <span class="dot" id="_2B5"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B4) CB Vị Trí Hút Phôi
+                                <span class="dot" id="_2B4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B6) CB Báo Có Phôi
+                                <span class="dot" id="_2B6"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B8) CB Báo Phôi Ngược
+                                <span class="dot" id="_2B8"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B7) CB Yêu Cầu Cấp Phôi
+                                <span class="dot" id="_2B7"></span>
+                            </div>
+                        </div>
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (3PV1) Hành trình nhả phôi
+                                <span class="dot" id="_3PV1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV2) Hành trình hút phôi
+                                <span class="dot" id="_3PV2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV3) Hút phôi
+                                <span class="dot" id="_3PV3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV4) XL cấp phôi đẩy
+                                <span class="dot" id="_3PV4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV5) XL cấp phôi thu
+                                <span class="dot" id="_3PV5"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-4 m-10 c-12">
+                <canvas class="_3dTram1"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let width = screen.width;
+    console.log(width);
+    if (width < 580) {
+        width = width - 72
+    } else {
+        width = width - 215
+    }
+    document.getElementById("Screen_1").style.width = width
+</script>
+<script type="module" src="render3D/JS/indexScreen.js" defer="defer"></script>
