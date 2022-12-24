@@ -87,12 +87,13 @@
         align-items: center;
     }
     .Tram1_column {
-        width: 250px;
+        width: 260px;
     }
     .container_Tram1 {
-        width: 280px;
-        height: 780px;
+        width: 290px;
+        height: 830px;
         margin-top: 26px;
+        margin-bottom: 26px;
     }
     .Tram1 {
         flex-direction: column;
@@ -107,12 +108,13 @@
         align-items: center;
     }
     .Tram1_column {
-        width: 250px;
+        width: 260px;
     }
     .container_Tram1 {
         width: 520px;
         height: 510px;
         margin-top: 26px;
+        margin-bottom: 26px;
     }
 }
 
