@@ -73,27 +73,23 @@ function fn_container_Reset(data){
 
     }
 }
-// kiểm tra trạng thái các trạm_start
-function scan_Tram_Start(payload_parse, id, idStyleTag){
+// kiểm tra trạng thái các trạm_start_reset
+function scan_Tram_Start_Reset(payload_parse, id1, id2 , idStyleTag){
     // tìm kiểm id trong chuỗi Json
-    var myInfo = payload_parse.values.find(function (user) {
-        return user.id === id;
+    var myInfo1 = payload_parse.values.find(function (user) {
+        return user.id === id1;
     });
-    if(myInfo.v == true){
+    var myInfo2 = payload_parse.values.find(function (user) {
+        return user.id === id2;
+    });
+    
+    if(myInfo1.v == true){
         document.getElementById(idStyleTag).style.borderLeft = '12px solid #1ab773'; //xanh
-    }else{
-        document.getElementById(idStyleTag).style.borderLeft = '12px solid #d8183e'; //đỏ
     }
-}
-// kiểm tra trạng thái các trạm_reset
-function scan_Tram_Reset(payload_parse, id, idStyleTag){
-    // tìm kiểm id trong chuỗi Json
-    var myInfo = payload_parse.values.find(function (user) {
-        return user.id === id;
-    });
-    if(myInfo.v == true){
+    else if(myInfo2.v == true){
         document.getElementById(idStyleTag).style.borderLeft = '12px solid #e38d0c'; //vàng
-    }else{
+    }
+    else{
         document.getElementById(idStyleTag).style.borderLeft = '12px solid #d8183e'; //đỏ
     }
 }

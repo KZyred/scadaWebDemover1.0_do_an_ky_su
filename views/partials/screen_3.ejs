@@ -1,6 +1,82 @@
 <!-- //////////////Code cho màn hình 3////////////// -->
-<div id="Screen_3">
+<div id="Screen_1">
     <!-- <p>Đây là màn 3</p> -->
+    <div class="grid wide">
+        <div class="row column-reverse">
+            <div class="col l-7 m-10 c-12 ">
+                <div class="container_Tram1">
+                    <div id="header">
+                        <h2>Trạm 3 : Trạm Gia Công</h2>
+                    </div>
+                    <div class="Tram1">
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (2B1) CB Vị Trí Phôi 
+                                <span class="dot" id="tram3_2B1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B2) CB Vị Trí Dập
+                                <span class="dot" id="tram3_2B2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B3) CB Vị Trí Gia Công
+                                <span class="dot" id="tram3_2B3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B4) CB Từ Bàn Xoay
+                                <span class="dot" id="tram3_2B4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B5) CB Báo Dập Phôi
+                                <span class="dot" id="tram3_2B5"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B6) CB Yêu Cầu Cấp Phôi
+                                <span class="dot" id="tram3_2B6"></span>
+                            </div>
+                        </div>
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (4M2) Đĩa Xoay
+                                <span class="dot" id="tram3_4M2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3M5) Dập Phôi
+                                <span class="dot" id="tram3_3M5"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3M4) Định Vị Phôi
+                                <span class="dot" id="tram3_3M4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (4M3) Khoan
+                                <span class="dot" id="tram3_4M3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (5K4) Khoan Di Chuyển Xuống
+                                <span class="dot" id="tram3_5K4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (5K3) Khoan Di Chuyển Lên
+                                <span class="dot" id="tram3_5K3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3M6) Gạt Phôi
+                                <span class="dot" id="tram3_3M6"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3B1) Yêu Cầu Cấp Phôi
+                                <span class="dot" id="tram3_3B1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-4 m-10 c-12">
+                <canvas class="_3dTram3"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     let width = screen.width;
@@ -10,6 +86,6 @@
     } else {
         width = width - 215
     }
-    document.getElementById("Screen_3").style.width = width
+    document.getElementById("Screen_1").style.width = width
 </script>
 <script type="module" src="render3D/JS/indexScreen.js" defer="defer"></script>

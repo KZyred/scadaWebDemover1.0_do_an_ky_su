@@ -114,3 +114,17 @@ if ($("._3dTram1").length){
     canvas = document.querySelector(ID_home)
     init();
 }
+
+if ($("._3dTram2").length){
+    ID_home = '._3dTram2'
+    glb_loader = 'render3D/3D/Tram_kiem_tra.glb'
+    canvas = document.querySelector(ID_home)
+    init();
+}
+
+if ($("._3dTram3").length){
+    ID_home = '._3dTram3'
+    glb_loader = 'render3D/3D/tram_ban_xoay.glb' 
+    canvas = document.querySelector(ID_home)
+    init();
+}

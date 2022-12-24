@@ -41,6 +41,39 @@ Tram1_3PV5 = "TCP_IP_tram.tramChu.Tram01_XLThu";
 Tram1_Reset = "TCP_IP_tram.tramChu.Tram01_Reset";
 Tram1_Start = "TCP_IP_tram.tramChu.Tram01_Start";
 
+Tram2_Reset = "TCP_IP_tram.tram2.Tram02_Reset";
+Tram2_Start = "TCP_IP_tram.tram2.Tram02_Start";
+Tram2_2B1 = "TCP_IP_tram.tram2.Tram02_CbPhoi";
+Tram2_2B2 = "TCP_IP_tram.tram2.Tram02_CbMau";
+Tram2_2B3 = "TCP_IP_tram.tram2.Tram02_CbAnToan";
+Tram2_2B4 = "TCP_IP_tram.tram2.Tram02_CbXLtren";
+Tram2_2B5 = "TCP_IP_tram.tram2.Tram02_CbXLDuoi";
+Tram2_2B6 = "TCP_IP_tram.tram2.Tram02_CbXLThu";
+Tram2_2B7 = "TCP_IP_tram.tram2.Tram02_YCCapPhoi";
+Tram2_3PV1 = "TCP_IP_tram.tram2.Tram02_XLLen";
+Tram2_3PV2 = "TCP_IP_tram.tram2.Tram02_XLXuong";
+Tram2_3PV3 = "TCP_IP_tram.tram2.Tram02_XLDay";
+Tram2_3PV4 = "TCP_IP_tram.tram2.Tram02_XLDanPhoi";
+Tram2_3B1 = "TCP_IP_tram.tram2.Tram02_YCCapPhoi";
+
+
+Tram3_Reset = "TCP_IP_tram.tramChu.Tram03_Reset";
+Tram3_Start = "TCP_IP_tram.tramChu.Tram03_Start";
+Tram3_2B1 = "TCP_IP_tram.tramChu.Tram03_CBVT1";
+Tram3_2B2 = "TCP_IP_tram.tramChu.Tram03_CBVT2";
+Tram3_2B3 = "TCP_IP_tram.tramChu.Tram03_CBVT3";
+Tram3_2B4 = "TCP_IP_tram.tramChu.Tram03_CBTuXoay";
+Tram3_2B5 = "TCP_IP_tram.tramChu.Tram03_CBVTDap";
+Tram3_2B6 = "TCP_IP_tram.tramChu.Tram03_CBTram";
+Tram3_4M2 = "TCP_IP_tram.tramChu.Tram03_BanXoay";
+Tram3_3M5 = "TCP_IP_tram.tramChu.Tram03_DapPhoi";
+Tram3_3M4 = "TCP_IP_tram.tramChu.Tram03_KepPhoi";
+Tram3_4M3 = "TCP_IP_tram.tramChu.Tram03_Khoan";
+Tram3_5K4 = "TCP_IP_tram.tramChu.tram03_KhoanDiXuong";
+Tram3_5K3 = "TCP_IP_tram.tramChu.Tram03_ KhoanDiLen";
+Tram3_3M6 = "TCP_IP_tram.tramChu.Tram03_GatPhoi";
+Tram3_3B1 = "TCP_IP_tram.tramChu.Tram03_YeuCauCapPhoi";
+
 // Tram1_2B2
 // Tram1_2B2
 

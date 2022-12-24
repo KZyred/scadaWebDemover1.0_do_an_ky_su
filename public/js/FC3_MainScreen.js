@@ -30,14 +30,9 @@ socket.on('mqtt', function(msg) {
     fn_container_Stop(find(obj,Stop))    
     fn_container_Reset(find(obj,Reset))   
 
-    scan_Tram_Reset(obj,Tram1_Reset, "tram01")
-    scan_Tram_Start(obj,Tram1_Start, "tram01")
-
-    // scan_Tram_Reset(obj,Tram1_Reset, "tram02")
-    // scan_Tram_Start(obj,Tram1_Reset, "tram02")
-
-    // scan_Tram_Reset(obj,Tram1_Reset, "tram03")
-    // scan_Tram_Start(obj,Tram1_Reset, "tram03")
+    scan_Tram_Start_Reset(obj,Tram1_Start, Tram1_Reset, "tram01")
+    scan_Tram_Start_Reset(obj,Tram2_Start, Tram2_Reset, "tram02")
+    scan_Tram_Start_Reset(obj,Tram3_Start, Tram3_Reset, "tram03")
 })
 
 // sự kiện click của start

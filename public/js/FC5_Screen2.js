@@ -13,14 +13,19 @@ socket.on('mqtt', function(msg) {
     // chuyển stringJson sang object
     var obj = JSON.parse(msg.payload); 
 
-    scanDot(obj,"Channel1.Device1.btt_Manu_Auto", "_2B2")
-    // scanDot(obj,"Channel1.Device1.@2B2", "_2B2")
-    scanDot(obj,"Channel1.Device1.@2B3", "_2B3")
-    scanDot(obj,"Channel1.Device1.@2B4", "_2B4")
-    scanDot(obj,"Channel1.Device1.@2B5", "_2B5")
-    scanDot(obj,"Channel1.Device1.@2B6", "_2B6")
-    scanDot(obj,"Channel1.Device1.@2B7", "_2B7")
-    scanDot(obj,"Channel1.Device1.@2B8", "_2B8")
+    scanDot(obj,Tram2_2B1, "tram2_2B1")
+    scanDot(obj,Tram2_2B2, "tram2_2B2")
+    scanDot(obj,Tram2_2B3, "tram2_2B3")
+    scanDot(obj,Tram2_2B4, "tram2_2B4")
+    scanDot(obj,Tram2_2B5, "tram2_2B5")
+    scanDot(obj,Tram2_2B6, "tram2_2B6")
+    scanDot(obj,Tram2_2B7, "tram2_2B7")
+
+    scanDot(obj,Tram2_3PV1, "tram2_3PV1")
+    scanDot(obj,Tram2_3PV2, "tram2_3PV2")
+    scanDot(obj,Tram2_3PV3, "tram2_3PV3")
+    scanDot(obj,Tram2_3PV4, "tram2_3PV4")
+    scanDot(obj,Tram2_3B1, "tram2_3B1")
 })
 
 

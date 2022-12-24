@@ -1,5 +1,77 @@
 <!-- //////////////Code cho màn hình 2////////////// -->
-<div id="Screen_2">
+<div id="Screen_1">
+    <div class="grid wide">
+        <div class="row column-reverse">
+            <div class="col l-7 m-10 c-12 ">
+                <div class="container_Tram1">
+                    <div id="header">
+                        <h2>Trạm 2 : Trạm Kiểm Tra</h2>
+                    </div>
+                    <div class="Tram1">
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (2B1) CB Báo Có Phôi
+                                <span class="dot" id="tram2_2B1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B2) CB Màu
+                                <span class="dot" id="tram2_2B2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (4B1) Chiều Cao Phôi
+                                <span class="dot" id="tram2_4B1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B4) CB Vị Trí Trên
+                                <span class="dot" id="tram2_2B4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B5) CB Vị Trí Dưới
+                                <span class="dot" id="tram2_2B5"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B6) CB Xy Lanh Thu
+                                <span class="dot" id="tram2_2B6"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B3) CB An Toàn
+                                <span class="dot" id="tram2_2B3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (2B7) CB Yêu Cầu Cấp Phôi
+                                <span class="dot" id="tram2_2B7"></span>
+                            </div>
+                        </div>
+                        <div class="Tram1_column">
+                            <div class="Tram1_row">
+                                (3PV1) Hành Trình Lên
+                                <span class="dot" id="tram2_3PV1"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV2) Hành Trình Xuống
+                                <span class="dot" id="tram2_3PV2"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV3) Xy Lanh Đẩy
+                                <span class="dot" id="tram2_3PV3"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3PV4) Xy Lanh Dẫn Phôi
+                                <span class="dot" id="tram2_3PV4"></span>
+                            </div>
+                            <div class="Tram1_row">
+                                (3B1) Yêu Cầu Cấp Phôi
+                                <span class="dot" id="tram2_3B1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-4 m-10 c-12">
+                <canvas class="_3dTram2"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     let width = screen.width;
@@ -9,6 +81,6 @@
     } else {
         width = width - 215
     }
-    document.getElementById("Screen_2").style.width = width
+    document.getElementById("Screen_1").style.width = width
 </script>
 <script type="module" src="render3D/JS/indexScreen.js" defer="defer"></script>
