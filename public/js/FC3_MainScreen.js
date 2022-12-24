@@ -13,7 +13,7 @@ let defaul = "#808080";
 // loadiing màn hình 
 var socket = io.connect()
 socket.on('connect', function () {
-    document.getElementById("hiden-loading").style.display = "none";
+    // document.getElementById("hiden-loading").style.display = "none";
 })
 
 //đồng ý subcriber topicSub
