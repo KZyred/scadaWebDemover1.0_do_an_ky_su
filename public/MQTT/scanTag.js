@@ -33,7 +33,7 @@ function fn_btt_mau_au(data){
         container_ĐK.style.border = "3px solid gray";
     }
 }
-// kiểm tra start, stop, reset
+// kiểm tra start
 function fn_container_Start(data){
     if(data == true){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #1ab773, 0 6px 20px 0 #1ab773";
@@ -42,9 +42,12 @@ function fn_container_Start(data){
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":false}]` })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":false}]` })
+        socket.emit('publish', { 'topic': topicPub, 'payload': payload_start_false })
+
 
     }
 }
+// kiểm tra stop
 function fn_container_Stop(data){
     if(data == true){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #d8183e, 0 6px 20px 0 #d8183e";
@@ -53,8 +56,11 @@ function fn_container_Stop(data){
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":false}]` })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
+        socket.emit('publish', { 'topic': topicPub, 'payload': payload_stop_false })
+
     }
 }
+// kiểm tra reset
 function fn_container_Reset(data){
     if(data == true){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #e38d0c, 0 6px 20px 0 #e38d0c";
@@ -62,7 +68,33 @@ function fn_container_Reset(data){
         document.getElementById("trangthai").innerHTML = '...';
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":false}]` })
-        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })       
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })      
+        socket.emit('publish', { 'topic': topicPub, 'payload': payload_reset_false })
+
+    }
+}
+// kiểm tra trạng thái các trạm_start
+function scan_Tram_Start(payload_parse, id, idStyleTag){
+    // tìm kiểm id trong chuỗi Json
+    var myInfo = payload_parse.values.find(function (user) {
+        return user.id === id;
+    });
+    if(myInfo.v == true){
+        document.getElementById(idStyleTag).style.borderLeft = '12px solid #1ab773'; //xanh
+    }else{
+        document.getElementById(idStyleTag).style.borderLeft = '12px solid #d8183e'; //đỏ
+    }
+}
+// kiểm tra trạng thái các trạm_reset
+function scan_Tram_Reset(payload_parse, id, idStyleTag){
+    // tìm kiểm id trong chuỗi Json
+    var myInfo = payload_parse.values.find(function (user) {
+        return user.id === id;
+    });
+    if(myInfo.v == true){
+        document.getElementById(idStyleTag).style.borderLeft = '12px solid #e38d0c'; //vàng
+    }else{
+        document.getElementById(idStyleTag).style.borderLeft = '12px solid #d8183e'; //đỏ
     }
 }
 ////////////////////////////////////////////////

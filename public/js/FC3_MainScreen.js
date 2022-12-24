@@ -10,6 +10,7 @@ let reset ='#e38d0c';
 let defaul = "#808080";
 
 // Bring up a socket.io connection
+// loadiing màn hình 
 var socket = io.connect()
 socket.on('connect', function () {
     document.getElementById("hiden-loading").style.display = "none";
@@ -27,7 +28,16 @@ socket.on('mqtt', function(msg) {
     fn_btt_mau_au(find(obj,Manu_Auto));
     fn_container_Start(find(obj,Start))
     fn_container_Stop(find(obj,Stop))    
-    fn_container_Reset(find(obj,Reset))    
+    fn_container_Reset(find(obj,Reset))   
+
+    scan_Tram_Reset(obj,Tram1_Reset, "tram01")
+    scan_Tram_Start(obj,Tram1_Start, "tram01")
+
+    // scan_Tram_Reset(obj,Tram1_Reset, "tram02")
+    // scan_Tram_Start(obj,Tram1_Reset, "tram02")
+
+    // scan_Tram_Reset(obj,Tram1_Reset, "tram03")
+    // scan_Tram_Start(obj,Tram1_Reset, "tram03")
 })
 
 // sự kiện click của start
@@ -36,8 +46,8 @@ btnStart.addEventListener('click', () => {
     btnStop.style.backgroundColor = defaul
     btnReset.style.backgroundColor = defaul
     // gửi dữ liệu true để tag cmd_Start
-    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":true}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":true},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': payload_start })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":true},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
 
 });
 
@@ -48,8 +58,8 @@ btnStop.addEventListener('click', () => {
     btnReset.style.backgroundColor = defaul
     active_stop = true;
     // gửi dữ liệu true để tag cmd_stop
-    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":true}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': payload_stop })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
 
 })
 
@@ -61,8 +71,8 @@ btnReset.addEventListener('click', () => {
         btnStop.style.backgroundColor = defaul
         active_stop = false
         // gửi dữ liệu true để tag cmd_reset
-        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":true}]` })
-        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
+        socket.emit('publish', { 'topic': topicPub, 'payload': payload_reset })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
 
     }
 })
@@ -85,7 +95,7 @@ function leftClick() {
     // gửi dữ liệu false để tag cmd_Mode_Manu_Auto
 
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":false}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Manu_Auto","v":false}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': payload_Manu })
 
 }
 
@@ -100,6 +110,6 @@ function rightClick() {
     // gửi dữ liệu true để tag cmd_Mode_Manu_Auto
 
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":true}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Manu_Auto","v":true}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': payload_Auto })
 
 }

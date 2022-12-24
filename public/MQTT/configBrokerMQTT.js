@@ -6,19 +6,6 @@ topicSub = "iotgateway";            // topic to subscriber to
 // Stop = "Channel2.Device1.btt_Stop";
 // Reset = "Channel2.Device1.btt_Reset";
 
-// Tram1_2B2 = "Channel1.Device1.@2B2";
-// Tram1_2B3 = "Channel1.Device1.@2B3";
-// Tram1_2B4 = "Channel1.Device1.@2B4";
-// Tram1_2B5 = "Channel1.Device1.@2B5";
-// Tram1_2B6 = "Channel1.Device1.@2B6";
-// Tram1_2B7 = "Channel1.Device1.@2B7";
-// Tram1_2B8 = "Channel1.Device1.@2B8";
-// Tram1_3PV1 = "Channel1.Device1.@3PV1";
-// Tram1_3PV2 = "Channel1.Device1.@3PV2";
-// Tram1_3PV3 = "Channel1.Device1.@3PV3";
-// Tram1_3PV4 = "Channel1.Device1.@3PV4";
-// Tram1_3PV5 = "Channel1.Device1.@3PV5";
-
 // Tram1_2B1 = "Channel2.Device1.CB_XL_day";
 // Tram1_2B2 = "Channel2.Device1.CB_XL_thu";
 // Tram1_2B3 = "Channel2.Device1.CB_apsuat_hutphoi";
@@ -33,23 +20,38 @@ topicSub = "iotgateway";            // topic to subscriber to
 // Tram1_3PV4 = "Channel2.Device1.Sole_XL_day";
 // Tram1_3PV5 = "Channel2.Device1.Sole_XL_thu";
 
-Manu_Auto = "TCP_IP_tram.tram1.btt_Manu_Auto";
-Start = "TCP_IP_tram.tram1.btt_Start";
-Stop = "TCP_IP_tram.tram1.btt_Stop";
-Reset = "TCP_IP_tram.tram1.btt_Reset";
-Tram1_2B1 = "TCP_IP_tram.tram1.CB_XL_day";
-Tram1_2B2 = "TCP_IP_tram.tram1.CB_XL_thu";
-Tram1_2B3 = "TCP_IP_tram.tram1.CB_apsuat_hutphoi";
-Tram1_2B4 = "TCP_IP_tram.tram1.CB_XLquay_hutphoi";
-Tram1_2B5 = "TCP_IP_tram.tram1.CB_XLquay_tram_ke";
-Tram1_2B6 = "TCP_IP_tram.tram1.Cb_phathienphoi";
-Tram1_2B7 = "TCP_IP_tram.tram1.CB_giao_tiep_tram";
-Tram1_2B8 = "TCP_IP_tram.tram1.CB_phoi_nguoc";
-Tram1_3PV1 = "TCP_IP_tram.tram1.Solenoid_XLquay_tramke";
-Tram1_3PV2 = "TCP_IP_tram.tram1.solenoid_XLquay_hut_phoi";
-Tram1_3PV3 = "TCP_IP_tram.tram1.Solenoid_giachut_hut_phoi";
-Tram1_3PV4 = "TCP_IP_tram.tram1.Sole_XL_day";
-Tram1_3PV5 = "TCP_IP_tram.tram1.Sole_XL_thu";
+Manu_Auto = "TCP_IP_tram.tramChu.btt_Manu_Auto";
+Start = "TCP_IP_tram.tramChu.btt_Start";
+Stop = "TCP_IP_tram.tramChu.btt_Stop";
+Reset = "TCP_IP_tram.tramChu.btt_Reset";
+
+Tram1_2B1 = "TCP_IP_tram.tramChu.Tram01_CBXLDay";
+Tram1_2B2 = "TCP_IP_tram.tramChu.Tram01_CBXLThu";
+Tram1_2B3 = "TCP_IP_tram.tramChu.Tram01_CBApSuat";
+Tram1_2B4 = "TCP_IP_tram.tramChu.Tram01_CBHTVTHutPhoi";
+Tram1_2B5 = "TCP_IP_tram.tramChu.Tram01_CBHTNhaPhoi";
+Tram1_2B6 = "TCP_IP_tram.tramChu.Tram01_CBPhoi";
+Tram1_2B7 = "TCP_IP_tram.tramChu.Tram01_CBTram";
+Tram1_2B8 = "TCP_IP_tram.tramChu.Tram01_CBPhoiNguoc";
+Tram1_3PV1 = "TCP_IP_tram.tramChu.Tram01_HTNhaPhoi";
+Tram1_3PV2 = "TCP_IP_tram.tramChu.Tram01_HTSangHutPhoi";
+Tram1_3PV3 = "TCP_IP_tram.tramChu.Tram01_HutPhoi";
+Tram1_3PV4 = "TCP_IP_tram.tramChu.Tram01_XLDay";
+Tram1_3PV5 = "TCP_IP_tram.tramChu.Tram01_XLThu";
+Tram1_Reset = "TCP_IP_tram.tramChu.Tram01_Reset";
+Tram1_Start = "TCP_IP_tram.tramChu.Tram01_Start";
 
 // Tram1_2B2
 // Tram1_2B2
+
+
+payload_start = `[{"id":"${Start}","v":true}]`;
+payload_reset = `[{"id":"${Reset}","v":true}]`;
+payload_stop  = `[{"id":"${Stop}","v":true}]`;
+
+payload_start_false = `[{"id":"${Start}","v":false}]`;
+payload_reset_false = `[{"id":"${Reset}","v":false}]`;
+payload_stop_false  = `[{"id":"${Stop}","v":false}]`;
+
+payload_Manu  = `[{"id":"${Manu_Auto}","v":false}]`;
+payload_Auto  = `[{"id":"${Manu_Auto}","v":true}]`;
