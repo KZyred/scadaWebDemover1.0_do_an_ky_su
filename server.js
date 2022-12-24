@@ -174,7 +174,7 @@ var client = mqtt.connect(options);
 
 // nếu kết nối thành công
 client.on('connect', function () {
-    console.log('Connected');
+    console.log('Connected_MQTT');
 });
 
 client.on('error', function (error) {
@@ -281,7 +281,9 @@ var mysql = require('mysql');
 // });
 var sqlcon 
 
-var tableName = "PLCSIM"
+// var tableName = "PLCSIM"
+var tableName = "PLC_thuc"
+
 // sqlcon.connect(function(err) {
 //   if (err) throw err;
 //   console.log("Connected!");
@@ -289,12 +291,20 @@ var tableName = "PLCSIM"
 
 var connection;
 
+// function handleDisconnect() {
+//       sqlcon = mysql.createConnection({
+//       host: "remotemysql.com",
+//       user: "TPTABtxBNb",
+//       password: "4CV3rCFWRa",
+//       database: "TPTABtxBNb",
+//       dateStrings:true
+//   }) // Recreate the connection, since
 function handleDisconnect() {
       sqlcon = mysql.createConnection({
-      host: "remotemysql.com",
-      user: "TPTABtxBNb",
-      password: "4CV3rCFWRa",
-      database: "TPTABtxBNb",
+      host: "sql6.freesqldatabase.com",
+      user: "sql6585588",
+      password: "GcPZ4eJW1N",
+      database: "sql6585588",
       dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
