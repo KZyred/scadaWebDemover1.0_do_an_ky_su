@@ -86,5 +86,7 @@ payload_start_false = `[{"id":"${Start}","v":false}]`;
 payload_reset_false = `[{"id":"${Reset}","v":false}]`;
 payload_stop_false  = `[{"id":"${Stop}","v":false}]`;
 
+// payload_Manu  = `[{"id":"${Manu_Auto}","v":false},{"id":"Channel1.Device1.auto_mau","v":false}]`;
+// payload_Auto  = `[{"id":"${Manu_Auto}","v":true},{"id":"Channel1.Device1.auto_mau","v":true}]`;
 payload_Manu  = `[{"id":"${Manu_Auto}","v":false}]`;
 payload_Auto  = `[{"id":"${Manu_Auto}","v":true}]`;

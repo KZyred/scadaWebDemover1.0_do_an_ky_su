@@ -18,18 +18,25 @@ function fn_table_01(data){
         var len = data.length;
         var txt = "<tbody>";
         if(len > 0){
-            for(var i=len-1;i>0;i--){
-                    txt +="<tr><td>"+data[i].id
-                        +"</td><td>"+data[i]._NAME
-                        +"</td><td>"+data[i]._NUMERICID
-                        +"</td><td>"+data[i]._VALUE
-                        +"</td><td>"+data[i]._TIMESTAMP
-                        +"</td><td>"+data[i]._QUALITY
-                        +"</td></tr>";
-                    }
+            for(var i=len-1;i>=0;i--)
+            {
+                if (data[i]._QUALITY == 192) {
+                    var QUALITY = "good"
+                }
+                else {
+                    var QUALITY = "bad"
+                }
+                txt +="<tr><td>"+data[i].id
+                    +"</td><td>"+data[i]._NAME
+                    // +"</td><td>"+data[i]._NUMERICID
+                    +"</td><td>"+data[i]._VALUE
+                    +"</td><td>"+data[i]._TIMESTAMP
+                    +"</td><td>"+QUALITY
+                    +"</td></tr>";
+            }
             if(txt != ""){
-            txt +="</tbody>"; 
-            $("#table_01").append(txt);
+                txt +="</tbody>"; 
+                $("#table_01").append(txt);
             }
         }
     }   

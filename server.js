@@ -162,12 +162,12 @@ var options = {
     // Clean session
     clean: true,
     connectTimeout: 4000,
-    host: '649754c970724a85bddf6a264c15813d.s1.eu.hivemq.cloud',
+    host: process.env.host_MQTT,
     port: 8883,
     protocol: 'mqtts',
-    username: 'dungducghi',
-    password: '0982839224',
-    clientId: 'abc'
+    username: process.env.username_MQTT,
+    password: process.env.password_MQTT,
+    clientId: 'AAA'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);
@@ -282,7 +282,7 @@ var mysql = require('mysql');
 var sqlcon 
 
 // var tableName = "PLCSIM"
-var tableName = "PLC_thuc"
+var tableName = process.env.tableName
 
 // sqlcon.connect(function(err) {
 //   if (err) throw err;
@@ -301,10 +301,10 @@ var connection;
 //   }) // Recreate the connection, since
 function handleDisconnect() {
       sqlcon = mysql.createConnection({
-      host: "sql6.freesqldatabase.com",
-      user: "sql6585588",
-      password: "GcPZ4eJW1N",
-      database: "sql6585588",
+      host: process.env.host_SQL,
+      user: process.env.user_SQL,
+      password: process.env.password_SQL,
+      database: process.env.database_SQL,
       dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
