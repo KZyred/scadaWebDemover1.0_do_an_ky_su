@@ -36,7 +36,9 @@ btnStart.addEventListener('click', () => {
     btnStop.style.backgroundColor = defaul
     btnReset.style.backgroundColor = defaul
     // gửi dữ liệu true để tag cmd_Start
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":true}]` })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":true}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":true},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
+
 });
 
 // sự kiện click của stop
@@ -46,7 +48,9 @@ btnStop.addEventListener('click', () => {
     btnReset.style.backgroundColor = defaul
     active_stop = true;
     // gửi dữ liệu true để tag cmd_stop
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":true}]` })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":true}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
+
 })
 
 // sự kiện click của reset
@@ -57,7 +61,9 @@ btnReset.addEventListener('click', () => {
         btnStop.style.backgroundColor = defaul
         active_stop = false
         // gửi dữ liệu true để tag cmd_reset
-        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":true}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":true}]` })
+        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
+
     }
 })
 
@@ -78,7 +84,9 @@ function leftClick() {
     container_ĐK.style.border = "3px solid gray";
     // gửi dữ liệu false để tag cmd_Mode_Manu_Auto
 
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":false}]` })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":false}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Manu_Auto","v":false}]` })
+
 }
 
 function rightClick() {
@@ -91,5 +99,7 @@ function rightClick() {
     btnReset.disabled = false
     // gửi dữ liệu true để tag cmd_Mode_Manu_Auto
 
-    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":true}]` })
+    // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":true}]` })
+    socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Manu_Auto","v":true}]` })
+
 }

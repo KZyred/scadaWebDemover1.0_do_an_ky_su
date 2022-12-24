@@ -40,7 +40,9 @@ function fn_container_Start(data){
         document.querySelector(".container_ĐK").style.border = "3px solid #1ab773";
         document.getElementById("trangthai").innerHTML = 'Running';
 
-        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":false}]` })
+
     }
 }
 function fn_container_Stop(data){
@@ -49,7 +51,8 @@ function fn_container_Stop(data){
         document.querySelector(".container_ĐK").style.border = "3px solid #d8183e";
         document.getElementById("trangthai").innerHTML = 'STOP';
 
-        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
     }
 }
 function fn_container_Reset(data){
@@ -58,7 +61,8 @@ function fn_container_Reset(data){
         document.querySelector(".container_ĐK").style.border = "3px solid #e38d0c";
         document.getElementById("trangthai").innerHTML = '...';
 
-        socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":false}]` })
+        // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })       
     }
 }
 ////////////////////////////////////////////////

@@ -75,10 +75,11 @@ function animate() {
     // required if controls.enableDamping or controls.autoRotate are set to true
     // controls.update()
 }
-
-if ($("._3dHome").length){
-    ID_home = '._3dHome'
-    glb_loader = 'render3D/3D/4 tram dau.glb'
-    canvas = document.querySelector(ID_home)
-    init();
-}
+$(document).ready(function() {
+    if ($("._3dHome").length){
+        ID_home = '._3dHome'
+        glb_loader = 'render3D/3D/4 tram dau.glb'
+        canvas = document.querySelector(ID_home)
+        init();
+    }
+});
