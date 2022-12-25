@@ -271,14 +271,6 @@ io.sockets.on('connection', function(sock) {
 
 // Khai báo SQL
 var mysql = require('mysql');
-
-// var sqlcon = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "123456",
-//     database: "SQL_PLC",
-//     dateStrings:true
-// });
 var sqlcon 
 
 // var tableName = "PLCSIM"
@@ -290,15 +282,6 @@ var tableName = process.env.tableName
 // });
 
 var connection;
-
-// function handleDisconnect() {
-//       sqlcon = mysql.createConnection({
-//       host: "remotemysql.com",
-//       user: "TPTABtxBNb",
-//       password: "4CV3rCFWRa",
-//       database: "TPTABtxBNb",
-//       dateStrings:true
-//   }) // Recreate the connection, since
 function handleDisconnect() {
       sqlcon = mysql.createConnection({
       host: process.env.host_SQL,
