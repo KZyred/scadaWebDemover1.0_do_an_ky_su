@@ -166,8 +166,8 @@ var options = {
     host: "649754c970724a85bddf6a264c15813d.s1.eu.hivemq.cloud",
     port: 8883,
     protocol: 'mqtts',
-    username: process.env.username_MQTT,
-    password: process.env.password_MQTT,
+    username: "dungducghi",
+    password: "0982839224",
     clientId: 'AAA'
 }
 // thiết lập kết nối với Broker
@@ -274,8 +274,8 @@ io.sockets.on('connection', function(sock) {
 var mysql = require('mysql');
 var sqlcon 
 
-// var tableName = "PLCSIM"
-var tableName = process.env.tableName
+var tableName = "PLC_thuc"
+// var tableName = process.env.tableName
 
 // sqlcon.connect(function(err) {
 //   if (err) throw err;
@@ -287,9 +287,9 @@ function handleDisconnect() {
       sqlcon = mysql.createConnection({
       // host: process.env.host_SQL,
       host: "sql6.freesqldatabase.com",
-      user: process.env.user_SQL,
-      password: process.env.password_SQL,
-      database: process.env.database_SQL,
+      user: "sql6585588",
+      password: "GcPZ4eJW1N",
+      database: "sql6585588",
       dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
