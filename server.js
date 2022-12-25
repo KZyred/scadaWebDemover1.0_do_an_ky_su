@@ -162,7 +162,8 @@ var options = {
     // Clean session
     clean: true,
     connectTimeout: 4000,
-    host: process.env.host_MQTT,
+    // host: process.env.host_MQTT,
+    host: "649754c970724a85bddf6a264c15813d.s1.eu.hivemq.cloud",
     port: 8883,
     protocol: 'mqtts',
     username: process.env.username_MQTT,
@@ -284,7 +285,8 @@ var tableName = process.env.tableName
 var connection;
 function handleDisconnect() {
       sqlcon = mysql.createConnection({
-      host: process.env.host_SQL,
+      // host: process.env.host_SQL,
+      host: "sql6.freesqldatabase.com",
       user: process.env.user_SQL,
       password: process.env.password_SQL,
       database: process.env.database_SQL,
