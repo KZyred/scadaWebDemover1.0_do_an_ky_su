@@ -163,11 +163,10 @@ var options = {
     clean: true,
     connectTimeout: 4000,
     host: process.env.host_MQTT,
-    // host: "649754c970724a85bddf6a264c15813d.s1.eu.hivemq.cloud",
     port: 8883,
     protocol: 'mqtts',
     username: "dungducghi",
-    password: "0982839224",
+    password: process.env.password_MQTT,
     clientId: 'AAA+'
 }
 // thiết lập kết nối với Broker
