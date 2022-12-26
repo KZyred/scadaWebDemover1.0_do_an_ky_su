@@ -26,8 +26,8 @@
 /* ////////////////////////////////////////////////////////////////// */
 .container_Tram1 {
     background-color: rgb(68, 68, 68);
-    width: 699px;
-    height: 530px;
+    /* width: 699px; */
+    /* height: 530px; */
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(5, 170, 247, 0.2), 0 6px 20px 0 rgba(2, 183, 255, 0.19);
     margin-top: 126px;
@@ -39,7 +39,8 @@
 .Tram1 {
     display: flex;
     justify-content: space-evenly;
-    margin-block: 20px;
+    /* margin-block: 20px; */
+    padding-block: 20px;
     /*vertical margin */
 }
 
@@ -91,7 +92,7 @@
     }
     .container_Tram1 {
         width: 290px;
-        height: 830px;
+        /* height: 830px; */
         margin-top: 26px;
         margin-bottom: 26px;
     }
@@ -111,10 +112,13 @@
         width: 260px;
     }
     .container_Tram1 {
-        width: 520px;
+        /* width: 520px; */
         height: 510px;
         margin-top: 26px;
         margin-bottom: 26px;
+    }
+    .Tram1 {
+        padding-inline: 20px ;
     }
 }
 
