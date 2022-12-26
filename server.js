@@ -165,7 +165,7 @@ var options = {
     host: process.env.host_MQTT,
     port: 8883,
     protocol: 'mqtts',
-    username: "dungducghi",
+    username: process.env.username_MQTT,
     password: process.env.password_MQTT,
     clientId: 'AAA+'
 }
@@ -273,8 +273,8 @@ io.sockets.on('connection', function(sock) {
 var mysql = require('mysql');
 var sqlcon 
 
-var tableName = "PLC_thuc"
-// var tableName = process.env.tableName
+// var tableName = "PLC_thuc"
+var tableName = process.env.tableName
 
 // sqlcon.connect(function(err) {
 //   if (err) throw err;
@@ -284,11 +284,10 @@ var tableName = "PLC_thuc"
 var connection;
 function handleDisconnect() {
       sqlcon = mysql.createConnection({
-      // host: process.env.host_SQL,
-      host: "sql6.freesqldatabase.com",
-      user: "sql6585588",
-      password: "GcPZ4eJW1N",
-      database: "sql6585588",
+      host: process.env.host_SQL,
+      user: process.env.user_SQL,
+      password: process.env.password_SQL,
+      database: process.env.database_SQL,
       dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
