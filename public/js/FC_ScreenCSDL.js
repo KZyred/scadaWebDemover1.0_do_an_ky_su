@@ -17,7 +17,11 @@ function reConnect_mySQL(){
 
 // hiện dữ liệu ngay khi mới bắt đầu vào
 fn_Table01_SQL_Show()
-
+socket.on('reConnect_mySQL_toClient',function(){
+    const btn = document.getElementById("buttonReload");
+    setTimeout('btn.classList.remove("button--loading")', 1000); //thực thi sau 1s
+    // btn.classList.remove("button--loading");
+}); 
 // Hiển thị dữ liệu ra bảng
 function fn_table_01(data){
     if(data){

@@ -167,7 +167,7 @@ var options = {
     protocol: 'mqtts',
     username: process.env.username_MQTT,
     password: process.env.password_MQTT,
-    clientId: 'AAA'
+    clientId: 'AAA++'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);
@@ -276,12 +276,6 @@ var sqlcon
 // var tableName = "PLC_thuc"
 var tableName = process.env.tableName
 
-// sqlcon.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-// });
-
-// var connection = false;
 function handleDisconnect() {
   sqlcon = mysql.createConnection({
     host: process.env.host_SQL,
@@ -291,7 +285,6 @@ function handleDisconnect() {
     dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
-
   sqlcon.connect(function(err) {              // The server is either down
     if(err) {                                     // or restarting (takes a while sometimes).
       console.log('error when connecting to db:', err);
@@ -308,21 +301,25 @@ function handleDisconnect() {
       throw err;                                  // server variable configures this)
     }
   });
+  sqlcon.on('end', function() {
+    console.log('end My SQL server connection');
+  });
 }
-
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 handleDisconnect();
-// // phòng trường hợp wait_timeout ở server mySQL
-// if (connection == true) {
-//   handleDisconnect();
-//   console.log("hi reconnect DB!")
-//   connection = false;
-// }
-// Đọc dữ liệu từ SQL
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+
+// reload dữ liệu
 io.on("connection", function(socket){
     socket.on("reConnect_mySQL", function(data)
     {
+      sqlcon.end()
       handleDisconnect();
       console.log("hi reconnect DB!")
+      socket.emit('reConnect_mySQL_toClient', "true");
     });
 });
 
