@@ -10,7 +10,14 @@ function fn_Table01_SQL_Show(){
     document.getElementById("hiden-loading").style.display = "none";
 }
 
+// kết nối lại với database
+function reConnect_mySQL(){
+    socket.emit("reConnect_mySQL", "true");
+}
+
+// hiện dữ liệu ngay khi mới bắt đầu vào
 fn_Table01_SQL_Show()
+
 // Hiển thị dữ liệu ra bảng
 function fn_table_01(data){
     if(data){

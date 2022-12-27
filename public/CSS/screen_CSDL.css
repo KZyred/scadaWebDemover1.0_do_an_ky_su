@@ -128,3 +128,18 @@ td {
     left: 136px;
     top: 110px;
 }
+#btt_Reset {
+    border: none;
+    background-color: DodgerBlue;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 105px;
+    height: 30px;
+    left: 250px;
+    top: 110px;
+}

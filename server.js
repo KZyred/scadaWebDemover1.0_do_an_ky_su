@@ -167,7 +167,7 @@ var options = {
     protocol: 'mqtts',
     username: process.env.username_MQTT,
     password: process.env.password_MQTT,
-    clientId: 'AAA+'
+    clientId: 'AAA'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);
@@ -281,14 +281,14 @@ var tableName = process.env.tableName
 //   console.log("Connected!");
 // });
 
-var connection;
+// var connection = false;
 function handleDisconnect() {
-      sqlcon = mysql.createConnection({
-      host: process.env.host_SQL,
-      user: process.env.user_SQL,
-      password: process.env.password_SQL,
-      database: process.env.database_SQL,
-      dateStrings:true
+  sqlcon = mysql.createConnection({
+    host: process.env.host_SQL,
+    user: process.env.user_SQL,
+    password: process.env.password_SQL,
+    database: process.env.database_SQL,
+    dateStrings:true
   }) // Recreate the connection, since
                                                   // the old one cannot be reused.
 
@@ -297,6 +297,7 @@ function handleDisconnect() {
       console.log('error when connecting to db:', err);
       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
     }                                     // to avoid a hot loop, and to allow our node script to
+    console.log("Connected DB!");
   });                                     // process asynchronous requests in the meantime.
                                           // If you're also serving http, display a 503 error.
   sqlcon.on('error', function(err) {
@@ -310,6 +311,20 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
+// // phòng trường hợp wait_timeout ở server mySQL
+// if (connection == true) {
+//   handleDisconnect();
+//   console.log("hi reconnect DB!")
+//   connection = false;
+// }
+// Đọc dữ liệu từ SQL
+io.on("connection", function(socket){
+    socket.on("reConnect_mySQL", function(data)
+    {
+      handleDisconnect();
+      console.log("hi reconnect DB!")
+    });
+});
 
 // Đọc dữ liệu từ SQL
 io.on("connection", function(socket){
