@@ -105,3 +105,17 @@ function scanDot(payload_parse, id, idStyleTag) {
         document.getElementById(idStyleTag).style.backgroundColor = '#d8183e'; //đỏ
     }
 }
+////////////////////////////////////////////////
+function scanDot(payload_parse, id, idStyleTag) {
+    // tìm kiểm id trong chuỗi Json
+    var myInfo = payload_parse.values.find(function (user) {
+        return user.id === id;
+    });
+    if(myInfo.v == true){
+        document.getElementById(idStyleTag).style.backgroundColor = '#1ab773'; //xanh
+        return true;
+    }else{
+        document.getElementById(idStyleTag).style.backgroundColor = '#d8183e'; //đỏ
+        return false;
+    }
+}
