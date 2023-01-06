@@ -6,8 +6,8 @@ let canvas, ID_home
 let scene, camera, renderer, controls;
 let modul_tayquay,giac_hut,xilanh_day,Phoi_cao_Mau_do_day, Phoi_cao_Mau_do_quay,Tram_cap_phoi_thieu
 let test = false;
-let speed_quay = 6;
-let speed_capPhoi = 3;
+let speed_quay = 8;
+let speed_capPhoi = 5;
 let diChuyenCaHe = 0.5;
 
 function changeColorObject( Object, colorObject ) {
@@ -156,19 +156,19 @@ function animate() {
         {
             modul_tayquay.rotation.z = (modul_tayquay.rotation.z+(Math.PI/180)* speed_quay)%(2*Math.PI);
             giac_hut.rotation.y = (giac_hut.rotation.y+(Math.PI/180)* speed_quay)%(2*Math.PI);
-            Phoi_cao_Mau_do_quay.visible = true
+            // Phoi_cao_Mau_do_quay.visible = true
         }
     }
     if ( _2B4 == true)
     {
-        if ( modul_tayquay.rotation.z > 0)
+        if ( modul_tayquay.rotation.z > 5*(Math.PI/180))
             {
                 modul_tayquay.rotation.z = (modul_tayquay.rotation.z-(Math.PI/180)* speed_quay)%(2*Math.PI);
                 giac_hut.rotation.y = (giac_hut.rotation.y-(Math.PI/180)* speed_quay)%(2*Math.PI);
-                Phoi_cao_Mau_do_quay.visible = false
+                // Phoi_cao_Mau_do_quay.visible = false
             }
     }
-    if ( _2B2 == true  && _2B1 == false)
+    if ( _2B2 == true  && _2B1 == false && (modul_tayquay.rotation.z < 8*(Math.PI/180)))
     {
         if ( xilanh_day.position.x > -0.0845 + diChuyenCaHe)
         {
@@ -188,10 +188,10 @@ function animate() {
             // PART.visible = false; 
         }
     }
-    if ( _2B3 == true) {
+    if ( _2B3 == true && modul_tayquay.rotation.z < 8*(Math.PI/180)) {
         Phoi_cao_Mau_do_quay.visible = true; 
     }
-    else if ( _2B3 == false) {
+    else if ( _2B3 == false && modul_tayquay.rotation.z > 177*(Math.PI/180)) {
         Phoi_cao_Mau_do_quay.visible = false; 
     }
 }
