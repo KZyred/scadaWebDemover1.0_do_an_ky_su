@@ -167,7 +167,7 @@ var options = {
     protocol: 'mqtts',
     username: process.env.username_MQTT,
     password: process.env.password_MQTT,
-    clientId: 'AAA++++++++++'
+    clientId: 'AAA+++'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);

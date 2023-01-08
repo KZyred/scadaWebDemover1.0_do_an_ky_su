@@ -5,7 +5,7 @@ import { OrbitControls } from "./OrbitControls.js";
 let canvas, ID_home, glb_loader
 let scene, camera, renderer, controls;
 
-function init() {
+async function init() {
     // độ rộng khung hình chứa
     const sizes = {
         width: 500,
@@ -32,16 +32,18 @@ function init() {
     controls = new OrbitControls(camera,canvas);
     controls.addEventListener('change', renderer);
 
-    const light4 = new THREE.PointLight(0xc4c4c4,0.8);
-    light4.position.set(-500,0,500);
-    scene.add(light4);
-
-    const light5 = new THREE.DirectionalLight(0xffffff, 1)
-    light5.position.set(2,2,5)
+    const light2 = new THREE.DirectionalLight(0xffffff, 0.8)
+    light2.position.set(0,500,0)
+    scene.add(light2)
+    const light5 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light5.position.set(0,0,-500)
     scene.add(light5)
-    const light6 = new THREE.DirectionalLight(0xc4c4c4, 1.5)
-    light6.position.set(0,100,-200)
+    const light6 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light6.position.set(0,0,500)
     scene.add(light6)
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light1.position.set(500,0,0)
+    scene.add(light1)
 
     // renderer = new THREE.WebGLRenderer({antialias:true});
     renderer = new THREE.WebGLRenderer({
@@ -55,24 +57,24 @@ function init() {
     // document.body.appendChild(renderer.domElement);  //renderer = new THREE.WebGLRenderer({antialias:true});
 
     let loader = new GLTFLoader();
-    let car
-    loader.load(glb_loader, function(glb){
+    let _4Tram
+    await loader.load(glb_loader, function(glb){
         // console.log(glb)
         ///////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////
         document.getElementById("hiden-loading").style.display = "none";
         ///////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////
-        car = glb.scene;
+        _4Tram = glb.scene;
         // tỉ lệ
-        car.scale.set(3,3,3);
+        _4Tram.scale.set(3,3,3);
         // vị trí vật
-        car.position.x = 0;
-        car.position.y = -1.5;
-        car.position.z = 1.2;
+        _4Tram.position.x = 0;
+        _4Tram.position.y = -1.5;
+        _4Tram.position.z = 1.2;
         scene.add(glb.scene);
-        animate();
     });
+    animate();
 }
 function animate() {
     requestAnimationFrame(animate);

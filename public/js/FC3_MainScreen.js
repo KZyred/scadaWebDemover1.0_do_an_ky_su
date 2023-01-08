@@ -20,60 +20,70 @@ socket.on('connect', function () {
 socket.emit('subscribe', { 'topic': topicSub });
 
 // thông điệp trả ra từ MQTT server
-socket.on('mqtt', function(msg) {
+socket.on('mqtt', async function(msg) {
     // document.getElementById("hiden-loading").style.display = "none";
     // chuyển stringJson sang object
     var obj = JSON.parse(msg.payload);
 
-    fn_btt_mau_au(find(obj,Manu_Auto));
-    fn_container_Start(find(obj,Start))
-    fn_container_Stop(find(obj,Stop))    
-    fn_container_Reset(find(obj,Reset))   
+    // fn_btt_mau_au(find(obj,Manu_Auto));
+    // fn_container_Start(find(obj,Start))
+    // fn_container_Stop(find(obj,Stop))    
+    // fn_container_Reset(find(obj,Reset))   
 
-    scan_Tram_Start_Reset(obj,Tram1_Start, Tram1_Reset, "tram01")
-    scan_Tram_Start_Reset(obj,Tram2_Start, Tram2_Reset, "tram02")
-    scan_Tram_Start_Reset(obj,Tram3_Start, Tram3_Reset, "tram03")
+    // scan_Tram_Start_Reset(obj,Tram1_Start, Tram1_Reset, "tram01")
+    // scan_Tram_Start_Reset(obj,Tram2_Start, Tram2_Reset, "tram02")
+    // scan_Tram_Start_Reset(obj,Tram3_Start, Tram3_Reset, "tram03")
+
+    await Promise.all([
+        await fn_btt_mau_au(find(obj,Manu_Auto)),
+        await fn_container_Start(find(obj,Start)),
+        await fn_container_Stop(find(obj,Stop)) ,
+        await fn_container_Reset(find(obj,Reset)) ,
+        await scan_Tram_Start_Reset(obj,Tram1_Start, Tram1_Reset, "tram01"),
+        await scan_Tram_Start_Reset(obj,Tram2_Start, Tram2_Reset, "tram02"),
+        await scan_Tram_Start_Reset(obj,Tram3_Start, Tram3_Reset, "tram03"),
+    ])
 })
 
 // sự kiện click của start
-btnStart.addEventListener('click', () => {
+btnStart.addEventListener('click', async () => {
     btnStart.style.backgroundColor = start
     btnStop.style.backgroundColor = defaul
     btnReset.style.backgroundColor = defaul
     // gửi dữ liệu true để tag cmd_Start
-    socket.emit('publish', { 'topic': topicPub, 'payload': payload_start })
+    await socket.emit('publish', { 'topic': topicPub, 'payload': payload_start })
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":true},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
 
 });
 
 // sự kiện click của stop
-btnStop.addEventListener('click', () => {
+btnStop.addEventListener('click', async () => {
     btnStop.style.backgroundColor = stop
     btnStart.style.backgroundColor = defaul
     btnReset.style.backgroundColor = defaul
     active_stop = true;
     // gửi dữ liệu true để tag cmd_stop
-    socket.emit('publish', { 'topic': topicPub, 'payload': payload_stop })
+    await socket.emit('publish', { 'topic': topicPub, 'payload': payload_stop })
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })
 
 })
 
 // sự kiện click của reset
-btnReset.addEventListener('click', () => {
+btnReset.addEventListener('click', async () => {
     if(active_stop == true){
         btnReset.style.backgroundColor = reset
         btnStart.style.backgroundColor = defaul
         btnStop.style.backgroundColor = defaul
         active_stop = false
         // gửi dữ liệu true để tag cmd_reset
-        socket.emit('publish', { 'topic': topicPub, 'payload': payload_reset })
+        await socket.emit('publish', { 'topic': topicPub, 'payload': payload_reset })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":true},{"id":"TCP_IP_tram.tram1.btt_Start","v":false},{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
 
     }
 })
 
 var btn_CĐ = document.getElementById('btn_CĐ')
-function leftClick() {
+async function leftClick() {
 	btn_CĐ.style.left = '0'
     // giảm độ mờ
     container_ĐK.style.opacity = 0.7;
@@ -90,11 +100,10 @@ function leftClick() {
     // gửi dữ liệu false để tag cmd_Mode_Manu_Auto
 
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":false}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': payload_Manu })
-
+    await socket.emit('publish', { 'topic': topicPub, 'payload': payload_Manu })
 }
 
-function rightClick() {
+async function rightClick() {
 	btn_CĐ.style.left = '110px'
     // tăng độ mờ 
     container_ĐK.style.opacity = 1;
@@ -105,6 +114,5 @@ function rightClick() {
     // gửi dữ liệu true để tag cmd_Mode_Manu_Auto
 
     // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Manu_Auto","v":true}]` })
-    socket.emit('publish', { 'topic': topicPub, 'payload': payload_Auto })
-
+    await socket.emit('publish', { 'topic': topicPub, 'payload': payload_Auto })
 }

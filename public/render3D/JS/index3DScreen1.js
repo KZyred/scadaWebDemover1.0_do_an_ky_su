@@ -45,12 +45,15 @@ async function init() {
     controls = new OrbitControls(camera,canvas);
     controls.addEventListener('change', renderer);
 
-    const light5 = new THREE.DirectionalLight(0xc4c4c4, 0.5)
-    light5.position.set(2, 2, 5)
+    const light5 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light5.position.set(0,0,-500)
     scene.add(light5)
-    const light6 = new THREE.DirectionalLight(0xc4c4c4, 0.8)
-    light6.position.set(0, 100, -200)
+    const light6 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light6.position.set(0,0,500)
     scene.add(light6)
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.5)
+    light1.position.set(500,0,0)
+    scene.add(light1)
 
     // renderer = new THREE.WebGLRenderer({antialias:true});
     renderer = new THREE.WebGLRenderer({

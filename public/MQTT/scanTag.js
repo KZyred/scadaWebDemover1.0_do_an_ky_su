@@ -38,6 +38,9 @@ function fn_container_Start(data){
     if(data == true){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #1ab773, 0 6px 20px 0 #1ab773";
         document.querySelector(".container_ĐK").style.border = "3px solid #1ab773";
+        btnStart.style.backgroundColor = start
+        btnStop.style.backgroundColor = defaul
+        btnReset.style.backgroundColor = defaul
         document.getElementById("trangthai").innerHTML = 'Running';
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":false}]` })
@@ -53,6 +56,9 @@ function fn_container_Stop(data){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #d8183e, 0 6px 20px 0 #d8183e";
         document.querySelector(".container_ĐK").style.border = "3px solid #d8183e";
         document.getElementById("trangthai").innerHTML = 'STOP';
+        btnStop.style.backgroundColor = stop
+        btnStart.style.backgroundColor = defaul
+        btnReset.style.backgroundColor = defaul
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Stop","v":false}]` })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Stop","v":false}]` })
@@ -66,6 +72,9 @@ function fn_container_Reset(data){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #e38d0c, 0 6px 20px 0 #e38d0c";
         document.querySelector(".container_ĐK").style.border = "3px solid #e38d0c";
         document.getElementById("trangthai").innerHTML = '...';
+        btnReset.style.backgroundColor = reset
+        btnStart.style.backgroundColor = defaul
+        btnStop.style.backgroundColor = defaul
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Reset","v":false}]` })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Reset","v":false}]` })      
