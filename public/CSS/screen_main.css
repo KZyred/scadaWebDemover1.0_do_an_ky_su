@@ -1,12 +1,11 @@
 /*Màn hình chính*/
 #Screen_Main {
-    position: absolute;
-    left: 220px;
-    /* width: 100% ; */
+    margin-left: 220px;
     background-color: #9a9a9a;
 }
 body {
     margin: 0;
+    /* width: 100%; */
 }
 * {
     box-sizing: border-box;
@@ -284,6 +283,9 @@ body {
         flex-direction: column-reverse;
         align-items: center;
     }
+    #Screen_Main {
+        margin-left: 73px;
+    }
 }
 
 /* tablet */
@@ -313,7 +315,6 @@ body {
 ._3dHome {
     margin-block: 26px;
 }
-
 
 
 

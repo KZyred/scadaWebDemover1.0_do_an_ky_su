@@ -22,8 +22,12 @@
     <label id="lb_Search_End">Đến:</label>
     <input id="dtpk_Search_End" type="datetime-local">
     <!--Nút tìm kiếm-->
-    <button id="btt_Search" class="buttonCSDL" onclick="fn_SQL_By_Time();console.log('hi')"><i class="button__text"> Search </i></button>
-    <button  id="btt_Refresh" class="buttonCSDL" onclick="fn_Table01_SQL_Show();console.log('hello')"><i class="button__text"> Refresh</i></button>
+    <button id="btt_Search" class="buttonCSDL_btt_Search" onclick="fn_SQL_By_Time();console.log('hi')">
+        <i class="button__text"> Search </i>
+    </button>
+    <button  id="btt_Refresh" class="buttonCSDL" onclick="fn_Table01_SQL_Show();console.log('hello')">
+        <i class="button__text"> Refresh</i>
+    </button>
     <button type="button" class="buttonCSDL" id="buttonReload" onclick="reConnect_mySQL();buttonReload();console.log('Reset')">
         <i class="button__text">Reset</i>
     </button>

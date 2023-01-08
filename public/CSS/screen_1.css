@@ -1,11 +1,8 @@
 
 /*Màn hình 1*/
 #Screen_1 {
-    position: absolute;
-    left: 220px;
-    /* height: 100%; */
-    /* width: 100%; */
     background-color: #9a9a9a;
+    margin-left: 220px;
 }
 @media (width < 580px) {
     #Screen_1{
@@ -80,9 +77,6 @@
 /* ////////////////////////////////////////////////////////////////// */
 /* mobile */
 @media (max-width: 739px) {
-    #Screen_1 {
-        left: 80px;
-    }
     .column-reverse {
         flex-direction: column-reverse;
         align-items: center;
@@ -99,6 +93,9 @@
     .Tram1 {
         flex-direction: column;
         align-items: center;
+    }
+    #Screen_1 {
+        margin-left: 73px;
     }
 }
 

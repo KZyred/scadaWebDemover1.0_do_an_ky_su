@@ -103,7 +103,6 @@ td {
     height: 36px;
     left: 16px;
     top: 104px;
-    background: #16657d;
 }
 #btt_Refresh {
     position: absolute;
@@ -128,9 +127,21 @@ td {
     border-radius: 2px;
     cursor: pointer;
 }
-
 .buttonCSDL:active {
-    background: #007a63;
+    background: #32421e;
+}
+
+.buttonCSDL_btt_Search {
+    position: relative;
+    padding: 8px 16px;
+    background: #16657d;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.buttonCSDL_btt_Search:active {
+    background: #32421e;
 }
 
 .button__text {

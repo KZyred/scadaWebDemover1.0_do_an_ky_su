@@ -20,17 +20,29 @@ function changeColorObject( Object, colorObject ) {
 }
 async function init() {
     // độ rộng khung hình chứa
-    const sizes = {
+    var sizes = {
         width: 500,
         height: 500, 
     }
-    if (window.innerWidth <739) {
+    if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
+        sizes.width = 269
+        sizes.height = 250
+    } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
         sizes.width = 300
-        sizes.height = 200
-    } else if (window.innerWidth>=739 && window.innerWidth<1239){
+        sizes.height = 250
+    } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
+        sizes.width = 350
+        sizes.height = 300
+    } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
+        sizes.width = 410
+        sizes.height = 410
+    } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
         sizes.width = 450
         sizes.height = 450
-    }
+    } else if ((window.innerWidth >= 1450)){
+        sizes.width = 500
+        sizes.height = 500
+    } 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 

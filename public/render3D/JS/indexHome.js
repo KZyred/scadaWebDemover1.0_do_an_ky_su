@@ -7,19 +7,37 @@ let scene, camera, renderer, controls;
 
 async function init() {
     // độ rộng khung hình chứa
-    const sizes = {
+    var sizes = {
         width: 500,
         height: 500, 
     }
-    if (window.innerWidth <739) {
+    if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
+        sizes.width = 269
+        sizes.height = 250
+    } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
         sizes.width = 300
-        sizes.height = 200
-    } else if (window.innerWidth>=739 && window.innerWidth<1239){
+        sizes.height = 250
+    } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
+        sizes.width = 350
+        sizes.height = 300
+    } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
+        sizes.width = 410
+        sizes.height = 410
+    } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
         sizes.width = 450
         sizes.height = 450
-    }
+    } else if ((window.innerWidth >= 1450)){
+        sizes.width = 500
+        sizes.height = 500
+    } 
+    // console.log( window.innerWidth)
+    // console.log(sizes.width)
+    // console.log(sizes.height)
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
+    // scene.background = new THREE.Color(0xffffff);
+
 
     // gần xa camera
     camera = new THREE.PerspectiveCamera(88, sizes.width/sizes.height, 0.1, 10)
@@ -86,6 +104,7 @@ $(document).ready(function() {
     if ($("._3dHome").length){
         ID_home = '._3dHome'
         glb_loader = 'render3D/3D/4 tram dau.glb'
+        // glb_loader = 'render3D/3D/tram_ban_xoay.glb'
         canvas = document.querySelector(ID_home)
         init();
     }
