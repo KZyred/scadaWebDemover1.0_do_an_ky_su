@@ -5,7 +5,7 @@ import { OrbitControls } from "./OrbitControls.js";
 let canvas, ID_home, glb_loader
 let scene, camera, renderer, controls;
 
-async function init() {
+function init() {
     // độ rộng khung hình chứa
     var sizes = {
         width: 500,
@@ -76,7 +76,7 @@ async function init() {
 
     let loader = new GLTFLoader();
     let _4Tram
-    await loader.load(glb_loader, function(glb){
+    loader.load(glb_loader, function(glb){
         // console.log(glb)
         ///////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ function animate() {
 $(document).ready(function() {
     if ($("._3dHome").length){
         ID_home = '._3dHome'
-        glb_loader = 'render3D/3D/4 tram dau.glb'
+        glb_loader = 'render3D/3D/3 tram dau.glb'
         // glb_loader = 'render3D/3D/tram_ban_xoay.glb'
         canvas = document.querySelector(ID_home)
         init();
