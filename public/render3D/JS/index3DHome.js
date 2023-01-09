@@ -4,12 +4,12 @@ import { OrbitControls } from "./OrbitControls.js";
 
 let canvas, ID_home, glb_loader
 let scene, camera, renderer, controls;
-
-function init() {
+canvas = document.querySelector("._3dHome")
+async function init() {
     // độ rộng khung hình chứa
     var sizes = {
-        width: 500,
-        height: 500, 
+        width: 1500,
+        height: 1100, 
     }
     if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
         sizes.width = 269
@@ -20,15 +20,21 @@ function init() {
     } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
         sizes.width = 350
         sizes.height = 300
+    } else if ( (window.innerWidth >= 739) && (window.innerWidth < 1024) ) {
+        sizes.width = 550
+        sizes.height = 650
+    } else if ( (window.innerWidth >= 1024) && (window.innerWidth < 1239) ) {
+        sizes.width = 800
+        sizes.height = 690
     } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
-        sizes.width = 410
-        sizes.height = 410
+        sizes.width = 1000
+        sizes.height = 690
     } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
-        sizes.width = 450
-        sizes.height = 450
+        sizes.width = 1000
+        sizes.height = 690
     } else if ((window.innerWidth >= 1450)){
-        sizes.width = 500
-        sizes.height = 500
+        sizes.width = 1200
+        sizes.height = 800
     } 
     // console.log( window.innerWidth)
     // console.log(sizes.width)
@@ -76,13 +82,13 @@ function init() {
 
     let loader = new GLTFLoader();
     let _4Tram
-    loader.load(glb_loader, function(glb){
+    await loader.load("render3D/3D/3 tram dau.glb", function(glb){
+                ///////////////////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////
+                document.getElementById("hiden-loading").style.display = "none";
+                ///////////////////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////
         // console.log(glb)
-        ///////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////
-        document.getElementById("hiden-loading").style.display = "none";
-        ///////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////
         _4Tram = glb.scene;
         // tỉ lệ
         _4Tram.scale.set(3,3,3);
@@ -101,11 +107,5 @@ function animate() {
     // controls.update()
 }
 $(document).ready(function() {
-    if ($("._3dHome").length){
-        ID_home = '._3dHome'
-        glb_loader = 'render3D/3D/3 tram dau.glb'
-        // glb_loader = 'render3D/3D/tram_ban_xoay.glb'
-        canvas = document.querySelector(ID_home)
-        init();
-    }
+    init();
 });

@@ -57,6 +57,7 @@ body {
     padding: 0 12px;
     border-radius: 24px;
     line-height: 1;
+    border-bottom: 1.9px solid #96e2fe;
 }
 
 .sidebar a:hover>span,button:hover>span {
@@ -73,30 +74,6 @@ body {
 .sidebar a>span>span,button>span>span {
     transition: 0.3s;
 }
-
-@media (max-width: 739px) {
-    .logo-img {
-        display: none;
-    }
-
-    .logo-icon {
-        display: block;
-    }
-
-    .sidebar {
-        width: 72px;
-    }
-
-    .sidebar a>span,button>span {
-        width: 50px;
-    }
-
-    .sidebar a>span>span,button>span>span {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
 .sidebar a i {
     position: relative;
     font-size: 28px;
@@ -119,7 +96,7 @@ body {
     top: -5px;
     right: -10px;
     border: 1px solid #ffffff;
-    background: #ff2f40;
+    background: #3a1f22;
     color: #f9f9f9;
     font-size: 12px;
     font-family: BlinkMacSystemFont;
@@ -205,3 +182,31 @@ body {
 #buttonLastChild {
     margin-top: auto;
 }
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+@media (max-width: 739px) {
+    .logo-img {
+        display: none;
+    }
+
+    .logo-icon {
+        display: block;
+    }
+
+    .sidebar {
+        width: 72px;
+    }
+
+    .sidebar a>span,button>span {
+        width: 50px;
+    }
+
+    .sidebar a>span>span,button>span>span {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */

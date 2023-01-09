@@ -4,23 +4,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scada hệ thống giám sát trên internet</title>
-    <!-- lấy dữ liệu từ PLC, keepware hiển thị lên web server -->
-    <script src="socket.io/socket.io.js"></script>
     <!-- ////////////// GỌI CÁC CSS //////////////  -->
     <link rel="stylesheet" href="CSS/slidebar.css">
-    <link rel="stylesheet" href="CSS/screen_1.css">
+    <link rel="stylesheet" href="CSS/screen.css">
     <link rel="stylesheet" href="CSS/loading.css">
     <link rel="stylesheet" href="CSS/grid.css">
     
-    <script src="js/plotly-2.8.3.min.js"></script>
+    <!-- lấy dữ liệu từ PLC, keepware hiển thị lên web server -->
+    <script src="socket.io/socket.io.js"></script>
+    <!-- vẽ biểu đồ -->
+    <!-- <script src="js/plotly-2.8.3.min.js" defer="defer"></script> -->
 
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="MQTT/configBrokerMQTT.js"></script>
 
     <script src="MQTT/scanTag.js"></script>
 
-    <!-- thêm  defer="defer" do tập lệnh đang chạy trước khi tải DOM
-    <script src="js/FC3_MainScreen.js" defer="defer"></script> -->
-
+    <!-- thêm  defer="defer" do tập lệnh đang chạy trước khi tải DOM -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 </head>
