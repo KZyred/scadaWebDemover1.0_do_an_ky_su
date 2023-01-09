@@ -81,7 +81,7 @@ async function init() {
     // document.body.appendChild(renderer.domElement);  //renderer = new THREE.WebGLRenderer({antialias:true});
 
     let loader = new GLTFLoader();
-    let _4Tram
+    let _3Tram
     await loader.load("render3D/3D/3 tram dau.glb", function(glb){
                 ///////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////
@@ -89,13 +89,13 @@ async function init() {
                 ///////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////
         // console.log(glb)
-        _4Tram = glb.scene;
+        _3Tram = glb.scene;
         // tỉ lệ
-        _4Tram.scale.set(3,3,3);
+        _3Tram.scale.set(3,3,3);
         // vị trí vật
-        _4Tram.position.x = 0;
-        _4Tram.position.y = -1.5;
-        _4Tram.position.z = 1.2;
+        _3Tram.position.x = 0;
+        _3Tram.position.y = -1.5;
+        _3Tram.position.z = 1.2;
         scene.add(glb.scene);
     });
     animate();
