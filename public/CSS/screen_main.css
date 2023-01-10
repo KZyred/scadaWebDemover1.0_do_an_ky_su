@@ -302,11 +302,6 @@ body {
     }
 }
 /* tablet */
-@media (min-width: 1239px) {
-    #Screen_Main {
-        height: 100%;
-    }
-}
 @media (max-width: 1024px) {
     .container_CĐ{
         margin-top: 39px;
@@ -318,6 +313,16 @@ body {
     }
     .container_ĐK {
         margin-left: 19px;
+    }
+}
+@media (max-width: 388px) {
+    .container_CĐ {
+        margin-inline: 13px;
+    }
+}
+@media (min-height: 889px) {
+    #Screen_Main {
+        height: 100%;
     }
 }
 /* ////////////////////////////////////////////////////////////////// */
