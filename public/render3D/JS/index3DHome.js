@@ -11,15 +11,14 @@ let modul_tayquay,giac_hut,xilanh_day,Phoi_cao_Mau_do_day, Phoi_cao_Mau_do_quay
 
 let Phoi_len_xuong_2,Can_gat_phoi, Module_kiem_tra,Module_nang_ha, Phoi_truot_khi_2, Phoi_truot_duoi
 let BanXoay, Phoi_cao_Mau_do_xoay_1 , Phoi_cao_Mau_do_xoay_2 , Phoi_cao_Mau_do_xoay_3, Phoi_cao_Mau_do_xoay_4, Phoi_cao_Mau_do_xoay_5, Phoi_cao_Mau_do_xoay_6
-
 let dot_phoi,giu_phoi, khoan, gat_phoi;
 
 let test = false;
 let duoc = false;
 let tram2_len = false;
 let tram2_gat_phoi = false;
-let speed_quay = 6;
-let speed_capPhoi = 3;
+let speed_quay = 10;
+let speed_capPhoi = 10;
 let diChuyenCaHe = 0;
 let xoay = true;
 let goc_xoay = 0;
@@ -101,17 +100,17 @@ async function init() {
     ////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////
     await Promise.all([
-        // await loader.load('render3D/3D_tram2_ghep/3 tram dau.glb', function (glb) {
-        //     // tỉ lệ
-        //     _3_tram_dau = glb.scene
-        //     _3_tram_dau.scale.set(1, 1, 1);
-        //     // vị trí vật
-        //     _3_tram_dau.position.x = 0+diChuyenCaHe;
-        //     _3_tram_dau.position.y = 0;
-        //     _3_tram_dau.position.z = 0 - diChuyenCaHe;
-        //     scene.add(_3_tram_dau); // thêm vào màn hình
-        //     duoc = true;
-        // }),
+        await loader.load('render3D/3D_tram2_ghep/3 tram dau.glb', function (glb) {
+            // tỉ lệ
+            _3_tram_dau = glb.scene
+            _3_tram_dau.scale.set(1, 1, 1);
+            // vị trí vật
+            _3_tram_dau.position.x = 0+diChuyenCaHe;
+            _3_tram_dau.position.y = 0;
+            _3_tram_dau.position.z = 0 - diChuyenCaHe;
+            scene.add(_3_tram_dau); // thêm vào màn hình
+            // duoc = true;
+        }),
         await loader.load('render3D/3D_tram1_ghep/xilanh_day.glb', function (glb) {
             xilanh_day = glb.scene
             // tỉ lệ
@@ -232,35 +231,35 @@ async function init() {
         Phoi_len_xuong_2.position.y = 0;
         Phoi_len_xuong_2.position.z = -0.054;
         changeColorObject(Phoi_len_xuong_2, 0xFF4500)
-        // Phoi_cao_Mau_do.visible = false
+        Phoi_len_xuong_2.visible = false
         Module_nang_ha.add(Phoi_len_xuong_2); // thêm vào màn hình
     });   
-    loader.load('render3D/3D_tram2_ghep/Phoi_cao-Mau_do.glb', function (glb) {
+    loader.load('render3D/3D_Tram2/Phoi_cao-Mau_do.glb', function (glb) {
         Phoi_truot_khi_2 = glb.scene;
         // Phoi_cao_Mau_do = new THREE.Mesh( glb, new THREE.MeshLambertMaterial( { color: 0xbbbbbb} ));
         // tỉ lệ
         Phoi_truot_khi_2.scale.set(1, 1, 1);
         // vị trí vật -0.0029999 290.2955253970300000 873.1011575459400000
-        Phoi_truot_khi_2.position.x = -0.0029999;
+        Phoi_truot_khi_2.position.x = -0.0029999 + diChuyenCaHe;
         Phoi_truot_khi_2.position.y = 0.87310115;
-        Phoi_truot_khi_2.position.z = -0.2902955;
+        Phoi_truot_khi_2.position.z = -0.2902955 - diChuyenCaHe;
         Phoi_truot_khi_2.rotation.x = -14.68385579 * (Math.PI / 180); 
         changeColorObject(Phoi_truot_khi_2, 0xFF4500)
         Phoi_truot_khi_2.visible = false
         scene.add(Phoi_truot_khi_2); // thêm vào màn hình
-    });
-    loader.load('render3D/3D_tram2_ghep/Phoi_cao-Mau_do.glb', function (glb) {
-        Phoi_truot_duoi = glb.scene;
-        // Phoi_cao_Mau_do = new THREE.Mesh( glb, new THREE.MeshLambertMaterial( { color: 0xbbbbbb} ));
-        // tỉ lệ
-        Phoi_truot_duoi.scale.set(1, 1, 1);
-        // vị trí vật -0.0029999 290.2955253970300000 873.1011575459400000
-        Phoi_truot_duoi.position.x = -0.0029999;
-        Phoi_truot_duoi.position.y = 0.727;
-        Phoi_truot_duoi.position.z = -0.2902955; 
-        changeColorObject(Phoi_truot_duoi, 0xFF4500)
-        // Phoi_truot_duoi.visible = false
-        scene.add(Phoi_truot_duoi); // thêm vào màn hình
+    }),
+    loader.load('render3D/3D_Tram2/Phoi_cao-Mau_do.glb', function (glb) {
+            Phoi_truot_duoi = glb.scene;
+            // Phoi_cao_Mau_do = new THREE.Mesh( glb, new THREE.MeshLambertMaterial( { color: 0xbbbbbb} ));
+            // tỉ lệ
+            Phoi_truot_duoi.scale.set(1, 1, 1);
+            // vị trí vật -0.0029999 290.2955253970300000 873.1011575459400000
+            Phoi_truot_duoi.position.x = -0.0029999 + diChuyenCaHe;
+            Phoi_truot_duoi.position.y = 0.727;
+            Phoi_truot_duoi.position.z = -0.2902955 - diChuyenCaHe; 
+            changeColorObject(Phoi_truot_duoi, 0xAAFF00) 
+            Phoi_truot_duoi.visible = false
+            scene.add(Phoi_truot_duoi); // thêm vào màn hình
     });
     loader.load('render3D/3D_tram3_ghep/BanXoay.glb', function (glb) {
         BanXoay = glb.scene;
@@ -553,19 +552,19 @@ function animate() {
                 Phoi_truot_khi_2.visible = true
             }
             if (Module_nang_ha.position.y < (gioi_han_xy_lanh_duoi + 0.01 )) {
-                Phoi_truot_duoi.position.z = -0.2902955 + 0.34 - diChuyenCaHe; 
+                Phoi_truot_duoi.position.z = -0.2902955 - diChuyenCaHe; 
                 // hiện phôi trượt dưới
                 Phoi_truot_duoi.visible = true
             }
         }
     }
-    let gioi_han_Phoi_truot_duoi = -0.019 - diChuyenCaHe
+    let gioi_han_Phoi_truot_duoi = -0.019 - 0.34 - diChuyenCaHe
     if (Phoi_truot_duoi.visible == true && (Phoi_truot_duoi.position.z > gioi_han_Phoi_truot_duoi)) {
         Phoi_truot_duoi.position.z = Phoi_truot_duoi.position.z - 0.002* speed_capPhoi;
     }
     // console.log(Phoi_truot_duoi.position.z) > -0.422295 gioi_han_Phoi_truot_duoi?
     // phôi trượt qua máng trượt khí
-    let gioi_han_phoi_truot_khi = -0.542295 + 0.34 - diChuyenCaHe
+    let gioi_han_phoi_truot_khi = -0.542295 - diChuyenCaHe
     if ( _2_3PV4 == true ){
         if (Phoi_truot_khi_2.position.z > gioi_han_phoi_truot_khi && Phoi_len_xuong_2.visible == false && Phoi_truot_khi_2.visible == true) {
             Phoi_truot_khi_2.position.z =  Phoi_truot_khi_2.position.z - 0.0015* speed_capPhoi;
@@ -576,7 +575,7 @@ function animate() {
         }
     } else if (_2_3PV4 == false) {
         Phoi_truot_khi_2.position.y = 0.87310115;
-        Phoi_truot_khi_2.position.z = -0.2902955 + 0.34 - diChuyenCaHe;
+        Phoi_truot_khi_2.position.z = -0.2902955 - diChuyenCaHe;
     }
 
 
