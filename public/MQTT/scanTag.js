@@ -110,21 +110,21 @@ function scanDot(payload_parse, id, idStyleTag) {
     });
     if(myInfo.v == true){
         document.getElementById(idStyleTag).style.backgroundColor = '#1ab773'; //xanh
+        return true
     }else{
         document.getElementById(idStyleTag).style.backgroundColor = '#d8183e'; //đỏ
+        return false
     }
 }
 ////////////////////////////////////////////////
-function scanDot(payload_parse, id, idStyleTag) {
+function scanMQTT_3D(payload_parse, id) {
     // tìm kiểm id trong chuỗi Json
     var myInfo = payload_parse.values.find(function (user) {
         return user.id === id;
     });
     if(myInfo.v == true){
-        document.getElementById(idStyleTag).style.backgroundColor = '#1ab773'; //xanh
         return true;
     }else{
-        document.getElementById(idStyleTag).style.backgroundColor = '#d8183e'; //đỏ
         return false;
     }
 }

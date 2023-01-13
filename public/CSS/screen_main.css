@@ -320,7 +320,7 @@ body {
         margin-inline: 13px;
     }
 }
-@media (min-height: 889px) {
+@media (min-height: 889px) and (min-width: 1024px) {
     #Screen_Main {
         height: 100%;
     }

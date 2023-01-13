@@ -166,7 +166,7 @@ async function init() {
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene,camera);
-    if ( _2B5 == true) {
+    if ( _3PV1 == true) {
         if ( modul_tayquay.rotation.z < 2*(Math.PI/2))
         {
             modul_tayquay.rotation.z = (modul_tayquay.rotation.z+(Math.PI/180)* speed_quay)%(2*Math.PI);
@@ -174,7 +174,7 @@ function animate() {
             // Phoi_cao_Mau_do_quay.visible = true
         }
     }
-    if ( _2B4 == true)
+    if ( _3PV2 == true)
     {
         if ( modul_tayquay.rotation.z > 5*(Math.PI/180))
             {
@@ -183,7 +183,7 @@ function animate() {
                 // Phoi_cao_Mau_do_quay.visible = false
             }
     }
-    if ( _2B2 == true  && _2B1 == false && (modul_tayquay.rotation.z < 8*(Math.PI/180)))
+    if ( _3PV5 == true )
     {
         if ( xilanh_day.position.x > -0.0845 + diChuyenCaHe)
         {
@@ -193,7 +193,7 @@ function animate() {
             Phoi_cao_Mau_do_day.visible = false; 
         }
     }
-    if ( _2B1 == true) {
+    if ( _3PV4 == true) {
         if ( xilanh_day.position.x < -0.0845 + 0.077 + diChuyenCaHe)
         {
             // đẩy phôi ra
@@ -203,10 +203,10 @@ function animate() {
             // PART.visible = false; 
         }
     }
-    if ( _2B3 == true && modul_tayquay.rotation.z < 8*(Math.PI/180)) {
+    if ( _3PV3 == true) {
         Phoi_cao_Mau_do_quay.visible = true; 
     }
-    else if ( _2B3 == false && modul_tayquay.rotation.z > 177*(Math.PI/180)) {
+    else if ( _3PV3 == false) {
         Phoi_cao_Mau_do_quay.visible = false; 
     }
 }
