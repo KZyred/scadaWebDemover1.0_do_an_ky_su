@@ -13,11 +13,7 @@ let Phoi_len_xuong_2,Can_gat_phoi, Module_kiem_tra,Module_nang_ha, Phoi_truot_kh
 let BanXoay, Phoi_cao_Mau_do_xoay_1 , Phoi_cao_Mau_do_xoay_2 , Phoi_cao_Mau_do_xoay_3, Phoi_cao_Mau_do_xoay_4, Phoi_cao_Mau_do_xoay_5, Phoi_cao_Mau_do_xoay_6
 let dot_phoi,giu_phoi, khoan, gat_phoi;
 
-let test = false;
 let duoc = false;
-let tram2_len = false;
-let tram2_gat_phoi = false;
-let speed_quay = 10;
 let speed_capPhoi = 10;
 let diChuyenCaHe = 0;
 let xoay = true;
@@ -35,14 +31,35 @@ function changeColorObject( Object, colorObject ) {
 
 async function init() {
     // độ rộng khung hình chứa
-    const sizes = {
+    var sizes = {
         width: 1500,
-        height: 1000,
+        height: 1100, 
     }
-    if (window.innerWidth < 600) {
-        sizes.width = 100
-        sizes.height = 100
-    }
+    // if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
+    //     sizes.width = 269
+    //     sizes.height = 250
+    // } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
+    //     sizes.width = 300
+    //     sizes.height = 250
+    // } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
+    //     sizes.width = 350
+    //     sizes.height = 300
+    // } else if ( (window.innerWidth >= 739) && (window.innerWidth < 1024) ) {
+    //     sizes.width = 550
+    //     sizes.height = 650
+    // } else if ( (window.innerWidth >= 1024) && (window.innerWidth < 1239) ) {
+    //     sizes.width = 800
+    //     sizes.height = 690
+    // } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
+    //     sizes.width = 1000
+    //     sizes.height = 690
+    // } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
+    //     sizes.width = 1000
+    //     sizes.height = 690
+    // } else if ((window.innerWidth >= 1450)){
+    //     sizes.width = 1200
+    //     sizes.height = 800
+    // } 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 
@@ -83,21 +100,8 @@ async function init() {
     // document.body.appendChild(renderer.domElement);  //renderer = new THREE.WebGLRenderer({antialias:true});
 
     let loader = new GLTFLoader();
-
-    // loader.load('render3D/3D_tram2_ghep/3 tram dau.glb', function (glb) {
-    //     // tỉ lệ
-    //     _3_tram_dau = glb.scene
-    //     _3_tram_dau.scale.set(1, 1, 1);
-    //     // vị trí vật
-    //     _3_tram_dau.position.x = 0+diChuyenCaHe;
-    //     _3_tram_dau.position.y = 0;
-    //     _3_tram_dau.position.z = 0 + diChuyenCaHe;
-    //     scene.add(_3_tram_dau); // thêm vào màn hình
-    //     duoc = true;
-    // });
-    // duoc = true;
     ////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
+    ///////////////////////////tram 1/////////////////////////////////////
     ////////////////////////////////////////////////////////////////
     await Promise.all([
         await loader.load('render3D/3D_tram2_ghep/3 tram dau.glb', function (glb) {
@@ -157,7 +161,7 @@ async function init() {
                     Phoi_cao_Mau_do_quay.position.z = 0.037;
                     Phoi_cao_Mau_do_quay.rotation.x = -Math.PI/2 ;
                     changeColorObject(Phoi_cao_Mau_do_quay, 0xFF4500)
-                    // Phoi_cao_Mau_do_quay.visible = false
+                    Phoi_cao_Mau_do_quay.visible = false
                     giac_hut.add(Phoi_cao_Mau_do_quay); // thêm vào màn hình
                 })  
             })
@@ -180,7 +184,7 @@ async function init() {
 
 
     ////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
+    /////////////////////////////Tram 2///////////////////////////////////
     ////////////////////////////////////////////////////////////////
     loader.load('render3D/3D_tram2_ghep/Module_kiem_tra.glb', function (glb) {
         Module_kiem_tra = glb.scene
@@ -368,7 +372,7 @@ async function init() {
         dot_phoi.position.y = 0.9395;
         dot_phoi.position.z = -0.624402416;
         // Phoi_cao_Mau_do_xoay_1.rotation.x = -(180-165.31614421) * (Math.PI / 180); 
-        changeColorObject(dot_phoi, 0xFF4500)
+        changeColorObject(dot_phoi, 0x888888)
         // Phoi_cao_Mau_do.visible = false
         scene.add(dot_phoi); // thêm vào màn hình
     });
@@ -382,7 +386,7 @@ async function init() {
         giu_phoi.position.z = -0.844161638;
         giu_phoi.rotation.z = Math.PI / 2
         giu_phoi.rotation.y = -30.55841921 * (Math.PI / 180);
-        changeColorObject(giu_phoi, 0xFF4500)
+        changeColorObject(giu_phoi, 0xA9A9A9)
         // Phoi_cao_Mau_do.visible = false
         scene.add(giu_phoi); // thêm vào màn hình
     });
@@ -396,7 +400,7 @@ async function init() {
         khoan.position.z = -0.77012175836;
         khoan.rotation.z = -Math.PI / 2;
         khoan.rotation.y = 29.52994997 * (Math.PI / 180);
-        changeColorObject(khoan, 0xFF4500)
+        changeColorObject(khoan, 0x7393B3)
         // Phoi_cao_Mau_do.visible = false
         scene.add(khoan); // thêm vào màn hình
     });
@@ -417,8 +421,8 @@ async function init() {
     ////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////
-    const axesHelper = new THREE.AxesHelper( 5 );
-    scene.add( axesHelper ); // thêm vào màn hình
+    // const axesHelper = new THREE.AxesHelper( 5 );
+    // scene.add( axesHelper ); // thêm vào màn hình
     // renderer.render(scene, camera);
     animate();
 }
@@ -431,26 +435,29 @@ function animate() {
     requestAnimationFrame(animate);
 
     /////////////////////// trạm 1////////////////////////////////////////
+    let gioi_han_xy_lanh_quay_nha_phoi = 175*(Math.PI/180)
     if ( _3PV1 == true) {
-        if ( modul_tayquay.rotation.z < 2*(Math.PI/2))
+        if ( modul_tayquay.rotation.z < gioi_han_xy_lanh_quay_nha_phoi)
         {
-            modul_tayquay.rotation.z = (modul_tayquay.rotation.z+(Math.PI/180)* speed_quay)%(2*Math.PI);
-            giac_hut.rotation.y = (giac_hut.rotation.y+(Math.PI/180)* speed_quay)%(2*Math.PI);
+            modul_tayquay.rotation.z = (modul_tayquay.rotation.z+(Math.PI/180)*1.3* speed_capPhoi)%(2*Math.PI);
+            giac_hut.rotation.y = (giac_hut.rotation.y+(Math.PI/180)*1.3* speed_capPhoi)%(2*Math.PI);
             // Phoi_cao_Mau_do_quay.visible = true
         }
     }
+    let gioi_han_xy_lanh_quay_hut_phoi = 5*(Math.PI/180)
     if ( _3PV2 == true)
     {
-        if ( modul_tayquay.rotation.z > 5*(Math.PI/180))
+        if ( modul_tayquay.rotation.z > gioi_han_xy_lanh_quay_hut_phoi)
             {
-                modul_tayquay.rotation.z = (modul_tayquay.rotation.z-(Math.PI/180)* speed_quay)%(2*Math.PI);
-                giac_hut.rotation.y = (giac_hut.rotation.y-(Math.PI/180)* speed_quay)%(2*Math.PI);
+                modul_tayquay.rotation.z = (modul_tayquay.rotation.z-(Math.PI/180)*1.3* speed_capPhoi)%(2*Math.PI);
+                giac_hut.rotation.y = (giac_hut.rotation.y-(Math.PI/180)*1.3* speed_capPhoi)%(2*Math.PI);
                 // Phoi_cao_Mau_do_quay.visible = false
             }
     }
+    let gioi_han_xy_lanh_thu = -0.0845 + diChuyenCaHe
     if ( _3PV5 == true )
     {
-        if ( xilanh_day.position.x > -0.0845 + diChuyenCaHe)
+        if ( xilanh_day.position.x > gioi_han_xy_lanh_thu)
         {
             // thu phôi vào
             xilanh_day.position.x = xilanh_day.position.x -0.001* speed_capPhoi;
@@ -458,12 +465,13 @@ function animate() {
             Phoi_cao_Mau_do_day.visible = false; 
         }
     }
+    let gioi_han_xy_lanh_day = -0.0845 + 0.077 + diChuyenCaHe
     if ( _3PV4 == true) {
-        if ( xilanh_day.position.x < -0.0845 + 0.077 + diChuyenCaHe)
+        if ( xilanh_day.position.x < gioi_han_xy_lanh_day)
         {
             // đẩy phôi ra
-            xilanh_day.position.x = xilanh_day.position.x +0.001* speed_capPhoi;
-            Phoi_cao_Mau_do_day.position.x = Phoi_cao_Mau_do_day.position.x +0.001* speed_capPhoi; 
+            xilanh_day.position.x = xilanh_day.position.x +0.002* speed_capPhoi;
+            Phoi_cao_Mau_do_day.position.x = Phoi_cao_Mau_do_day.position.x +0.002* speed_capPhoi; 
             Phoi_cao_Mau_do_day.visible = true; 
             // PART.visible = false; 
         }
@@ -480,9 +488,18 @@ function animate() {
 
 
     /////////////////////// trạm 2////////////////////////////////////////
-    if ((_2_2B1 == true) && (_2_2B7 == false) && (Phoi_truot_khi_2.visible == false)) {
+    if (_2_2B2 == true) {
+        changeColorObject(Phoi_len_xuong_2, 0xFF4500);    // đỏ
+    } else if (_2_2B2 == false ) {
+        changeColorObject(Phoi_len_xuong_2, 0xAAFF00);    //đen
+    }
+    // dat o dau cho những cái sau ghi đè
+    // hiên khi cb có phôi, báo yC ko có phôi
+    // && (Phoi_truot_khi_2.visible == false)
+    if ((_2_2B1 == true) && (_2_3B1 == false)) {
         Phoi_len_xuong_2.visible = true;
     }
+
     // xy lanh nâng hạ phôi
     let gioi_han_xy_lanh_len = 0.95
     // lên hết
@@ -497,11 +514,6 @@ function animate() {
             }  
     }
 
-    if (_2_2B2 == true) {
-        changeColorObject(Phoi_len_xuong_2, 0xFF4500);    // đỏ
-    } else if (_2_2B2 == false ) {
-        changeColorObject(Phoi_len_xuong_2, 0xAAFF00);    //đen
-    }
     // xy lanh nâng hạ đi xuống hết
     let gioi_han_xy_lanh_duoi = 0.727158
     if ((_2_3PV2 == true) && (_2_2B2 == false)){
@@ -536,7 +548,7 @@ function animate() {
             Can_gat_phoi.position.x =  Can_gat_phoi.position.x + 0.002* speed_capPhoi;
             Phoi_len_xuong_2.position.x =  Phoi_len_xuong_2.position.x + 0.002* speed_capPhoi;
         }
-        if (Module_nang_ha.position.y > gioi_han_xy_lanh_giua) {
+        if (Module_nang_ha.position.y > (gioi_han_xy_lanh_giua-0.05)) {
             changeColorObject(Phoi_len_xuong_2, 0xFF4500) //đỏ 
         }
     } else if (_2_3PV3 == false) {
@@ -559,17 +571,17 @@ function animate() {
         }
     }
     let gioi_han_Phoi_truot_duoi = -0.019 - 0.34 - diChuyenCaHe
-    if (Phoi_truot_duoi.visible == true && (Phoi_truot_duoi.position.z > gioi_han_Phoi_truot_duoi)) {
+    if ((Phoi_truot_duoi.visible == true) && (Phoi_truot_duoi.position.z > gioi_han_Phoi_truot_duoi)) {
         Phoi_truot_duoi.position.z = Phoi_truot_duoi.position.z - 0.002* speed_capPhoi;
     }
     // console.log(Phoi_truot_duoi.position.z) > -0.422295 gioi_han_Phoi_truot_duoi?
     // phôi trượt qua máng trượt khí
     let gioi_han_phoi_truot_khi = -0.542295 - diChuyenCaHe
     if ( _2_3PV4 == true ){
-        if (Phoi_truot_khi_2.position.z > gioi_han_phoi_truot_khi && Phoi_len_xuong_2.visible == false && Phoi_truot_khi_2.visible == true) {
+        if (Phoi_truot_khi_2.position.z > gioi_han_phoi_truot_khi && (Phoi_len_xuong_2.visible == false) && Phoi_truot_khi_2.visible == true) {
             Phoi_truot_khi_2.position.z =  Phoi_truot_khi_2.position.z - 0.0015* speed_capPhoi;
             Phoi_truot_khi_2.position.y =  Phoi_truot_khi_2.position.y - 0.000375* speed_capPhoi;
-            if (Phoi_truot_khi_2.position.z < gioi_han_phoi_truot_khi) {
+            if ((Phoi_truot_khi_2.position.z < gioi_han_phoi_truot_khi)) {
                 Phoi_truot_khi_2.visible = false;
             }
         }
@@ -610,11 +622,13 @@ function animate() {
             dot_phoi.position.y = dot_phoi.position.y + 0.001* speed_capPhoi;
         }
     }
-
+    // rad
+    // let gioi_han_gat_phoi_ra = 1.25960105
+    // let gioi_han_gat_phoi_ve = 2.159601054858497
     if ( _3_3M6 == true) {
         if ( gat_phoi.rotation.y > 1.25960105){
             // gạt sang
-            gat_phoi.rotation.y = gat_phoi.rotation.y - 0.01* speed_quay;
+            gat_phoi.rotation.y = gat_phoi.rotation.y - 0.01* speed_capPhoi;
             if ( gat_phoi.rotation.y >  1.25960105){
                 if (Phoi_cao_Mau_do_xoay_6.visible == true) {
                     Phoi_cao_Mau_do_xoay_6.visible = false
@@ -639,7 +653,7 @@ function animate() {
     } else if ( _3_3M6 == false) {
         if ( gat_phoi.rotation.y < 2.159601054858497){
             // gạt về
-            gat_phoi.rotation.y = gat_phoi.rotation.y + 0.01* speed_quay;
+            gat_phoi.rotation.y = gat_phoi.rotation.y + 0.01* speed_capPhoi;
         }
     }
     ////////////////////////////////////////////////////////////////
@@ -669,9 +683,9 @@ function animate() {
     let gioi_han_goc_xoay = 0.3 * (Math.PI / 180)
     if ( _3_4M2 == true) {
         if ( xoay == true) {
-            goc_xoay += 0.005* speed_quay;
+            goc_xoay += 0.0075 * speed_capPhoi;
             if ( (goc_xoay - 60 * (Math.PI / 180)) < gioi_han_goc_xoay) {
-                BanXoay.rotation.y = BanXoay.rotation.y - 0.005* speed_quay
+                BanXoay.rotation.y = BanXoay.rotation.y - 0.0075 * speed_capPhoi
             }
             if ( (goc_xoay - 60 * (Math.PI / 180)) > gioi_han_goc_xoay ) {
                 i += 1;
@@ -685,191 +699,8 @@ function animate() {
     } else if ( _3_4M2 == false) {
         xoay = true
     }
-
-
 }
  // phải viết các hàm đọc sự kiện đứng trước {init (hàm lặp vô tận)}
 $(document).ready(function() {
     init();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // if ( duoc == true ) {
-    //     // if ( test == true) {
-    //     //     if ( modul_tayquay.rotation.z < 2*(Math.PI/2))
-    //     //     {
-    //     //         modul_tayquay.rotation.z = (modul_tayquay.rotation.z+(Math.PI/180)* speed_quay)%(2*Math.PI);
-    //     //         giac_hut.rotation.y = (giac_hut.rotation.y+(Math.PI/180)* speed_quay)%(2*Math.PI);
-    //     //         Phoi_cao_Mau_do_quay.visible = true
-    //     //     }
-    //     // }
-    //     // else if ( test == false)
-    //     // {
-    //     //     if ( modul_tayquay.rotation.z > 0)
-    //     //         {
-    //     //             modul_tayquay.rotation.z = (modul_tayquay.rotation.z-(Math.PI/180)* speed_quay)%(2*Math.PI);
-    //     //             giac_hut.rotation.y = (giac_hut.rotation.y-(Math.PI/180)* speed_quay)%(2*Math.PI);
-    //     //             Phoi_cao_Mau_do_quay.visible = false
-    //     //         }
-    //     // }
-    //     // if ( test == true) {
-    //     //     if ( xilanh_day.position.x < -0.0845 + 0.077 +diChuyenCaHe)
-    //     //     {
-    //     //         xilanh_day.position.x = xilanh_day.position.x +0.001* speed_capPhoi;
-    //     //         Phoi_cao_Mau_do_day.position.x = Phoi_cao_Mau_do_day.position.x +0.001* speed_capPhoi; 
-    //     //         Phoi_cao_Mau_do_day.visible = true; 
-    //     //         // PART.visible = false; 
-    //     //     }
-    //     // }
-    //     // else if ( test == false)
-    //     // {
-    //     //     if ( xilanh_day.position.x > -0.0845 +diChuyenCaHe)
-    //     //     {
-    //     //         xilanh_day.position.x = xilanh_day.position.x -0.001* speed_capPhoi;
-    //     //         Phoi_cao_Mau_do_day.position.x = Phoi_cao_Mau_do_day.position.x -0.001* speed_capPhoi; 
-    //     //         Phoi_cao_Mau_do_day.visible = false; 
-    //     //     }
-    //     // }  
-
-
-    //     // trạm 2
-    //     if ( test == true) {
-    //         // if ( (modul_tayquay.rotation.z > 2*(Math.PI/2)) && (test == true))
-    //         // {
-    //         //     Phoi_cao_Mau_do_quay.visible = false;
-    //         // }
-    //         // buoc_6 = false;
-    //         // buoc_1 = true;
-    //         // xy lanh nâng hạ phôi
-    //         let gioi_han_xy_lanh_len = 0.95
-    //         // lên hết
-    //         if ((buoc_1 == true)) {
-    //             if (Module_nang_ha.position.y < gioi_han_xy_lanh_len) {
-    //                 // xy lanh lên
-    //                 Module_nang_ha.position.y = Module_nang_ha.position.y + 0.001* speed_capPhoi;
-    //             }
-    //             if ( Module_nang_ha.position.y > (gioi_han_xy_lanh_len - 0.03)){
-    //                 // kiểm tra chiều cao phôi lến
-    //                 Module_kiem_tra.position.y = Module_kiem_tra.position.y + 0.001* speed_capPhoi;
-    //             }
-    //             if ( Module_nang_ha.position.y > gioi_han_xy_lanh_len){
-    //                 buoc_1 = false;
-    //                 buoc_2_1 = true;
-    //             }
-    //         }
-    //         // xuống giữa
-    //         let gioi_han_xy_lanh_giua = 0.879158
-    //         if ((buoc_2_1 == true))
-    //         {
-    //             if (Module_nang_ha.position.y > gioi_han_xy_lanh_giua) {
-    //                 Module_nang_ha.position.y = Module_nang_ha.position.y - 0.001* speed_capPhoi;
-    //                 if (Module_kiem_tra.position.y > 1.1484) {
-    //                     // kiểm tra chiều cao phôi xuống
-    //                     Module_kiem_tra.position.y = Module_kiem_tra.position.y - 0.001* speed_capPhoi;
-    //                 }
-    //                 if (Module_nang_ha.position.y < gioi_han_xy_lanh_giua) {
-    //                     buoc_2_1 = false;
-    //                     buoc_3 = true;
-    //                 }
-    //             }
-    //         }
-    //         // đấy phôi trạm 2
-    //         let gioi_han_gat_phoi_ra = 0.075
-    //         // đấy phôi trạm 2 đẩy hết
-    //         if (buoc_3 == true){
-    //             if ((Can_gat_phoi.position.x < gioi_han_gat_phoi_ra) && (Module_nang_ha.position.y < 0.890158)){
-    //                 Can_gat_phoi.position.x =  Can_gat_phoi.position.x + 0.001* speed_capPhoi;
-    //                 Phoi_len_xuong_2.position.x =  Phoi_len_xuong_2.position.x + 0.001* speed_capPhoi;
-    //                 if (Can_gat_phoi.position.x > gioi_han_gat_phoi_ra){
-    //                     // tram2_gat_phoi = true;
-    //                     buoc_3 = false;
-    //                     buoc_4 = true;
-    //                 }
-    //             }
-    //         }
-    //         let gioi_han_gat_phoi_ve = 0.0167
-    //         // đấy phôi trạm 2 thu về
-    //         if (buoc_4 == true) {
-    //             if (Can_gat_phoi.position.x > gioi_han_gat_phoi_ve)
-    //             {
-    //                 Can_gat_phoi.position.x =  Can_gat_phoi.position.x - 0.001* speed_capPhoi;
-    //                 //ẩn phôi đỏ xy lanh đẩy
-    //                 Phoi_len_xuong_2.visible = false
-    //                 // phôi về vị trí ban đầu
-    //                 Phoi_len_xuong_2.position.x = 0.0505;
-    //                 // hiện phôi trượt khí
-    //                 Phoi_truot_khi_2.visible = true
-    //             }
-    //             if (Can_gat_phoi.position.x < gioi_han_gat_phoi_ve){
-    //                 buoc_4 = false;
-    //                 buoc_5 = true;
-    //             }
-    //         }
-    //         // if ( mang_khi == true) {
-    //         // if ( mang_khi == true && Phoi_truot_khi_2.position.z > -0.5) {
-        
-    //         // phôi trượt qua máng trượt khí
-    //         let gioi_han_phoi_truot_khi = -0.542295
-    //         if ( buoc_5 == true ){
-    //             if (Phoi_truot_khi_2.position.z > gioi_han_phoi_truot_khi && Phoi_len_xuong_2.visible == false && Phoi_truot_khi_2.visible == true) {
-    //                 Phoi_truot_khi_2.position.z =  Phoi_truot_khi_2.position.z - 0.001* speed_capPhoi;
-    //                 Phoi_truot_khi_2.position.y =  Phoi_truot_khi_2.position.y - 0.00025* speed_capPhoi;
-    //                 if (Phoi_truot_khi_2.position.z < gioi_han_phoi_truot_khi) {
-    //                     Phoi_truot_khi_2.visible = false;
-    //                     Phoi_truot_khi_2.position.y = 0.87310115;
-    //                     Phoi_truot_khi_2.position.z = -0.2902955;
-    //                     buoc_5 = false;
-    //                 }
-    //                 buoc_6 = true;
-    //             }
-    //         }
-    //         // xy lanh nâng hạ đi xuống hết
-    //         let gioi_han_xy_lanh_duoi = 0.727158
-    //         if ( buoc_6 == true ){
-    //             if (Module_nang_ha.position.y > gioi_han_xy_lanh_duoi) {
-    //                 Module_nang_ha.position.y = Module_nang_ha.position.y - 0.001* speed_capPhoi;
-    //                 // if (Module_nang_ha.position.y < gioi_han_xy_lanh_duoi) {
-    //                 //     buoc_6 = false;
-    //                 //     buoc_1 = true;
-    //                 // }
-    //             }
-    //         }
-    //         ////////////////////////////////////////////////////////////////
-    //         ////////////////////////////////////////////////////////////////
-    //         ////////////////////////////////////////////////////////////////
-    //          // muốn chạy đẩy phôi trạm 2 thì cho tram2_gat_phoi = false
-    //         ////////////////////////////////////////////////////////////////
-    //         ////////////////////////////////////////////////////////////////
-    //         ////////////////////////////////////////////////////////////////
-
-
-
-
-    //         // if ( (Can_gat_phoi.position.x < 0.07)) {
-    //         //     Can_gat_phoi.position.x =  Can_gat_phoi.position.x + 0.001* speed_capPhoi;
-    //         // }
-    //     } 
-    //     if ( test == false) {
-    //         buoc_6 = false;
-    //         buoc_1 = true;
-    //     }
-    // }
-
