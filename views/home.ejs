@@ -11,7 +11,6 @@
             <div class="loadingio-spinner-double-ring-nzbwkaq6i3" id ="hiden-loading"><div class="ldio-58h4ty3tidc"><div></div><div></div><div><div></div></div><div><div></div></div></div></div>
     </body>
     <link rel="stylesheet" href="CSS/screen_main.css">
-    <script src="js/FC3_MainScreen.js" defer="defer"></script>
     <script>
         const myTimeout = setTimeout(myGreeting, 688);
 
@@ -22,5 +21,12 @@
             ///////////////////////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////////////////////
         }
+        const element = document.getElementById("Screen_Main");
+        if (element.clientHeight < window.innerHeight) {
+            element.style.height = "100%";
+        } else if (element.clientHeight >= window.innerHeight) {
+            element.style.height = `"${element.clientHeight}px"`;
+        }
     </script>
+    <script src="js_xu_li_tin_hieu/FC3_MainScreen.js" defer="defer"></script>
 </html>

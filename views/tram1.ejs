@@ -11,6 +11,14 @@
         <!-- <button id="btt_click" style="position: absolute; left: 220px;">click</button> -->
         <div class="loadingio-spinner-double-ring-nzbwkaq6i3" id ="hiden-loading"><div class="ldio-58h4ty3tidc"><div></div><div></div><div><div></div></div><div><div></div></div></div></div>
     </body>
-    <script src="js/FC4_Screen1.js"></script>
+    <script>
+        const element = document.getElementById("Screen_1");
+        if (element.clientHeight < window.innerHeight) {
+            element.style.height = "100%";
+        } else if (element.clientHeight >= window.innerHeight) {
+            element.style.height = `"${element.clientHeight}px"`;
+        }
+    </script>
+    <script src="js_xu_li_tin_hieu/FC4_Screen1.js"></script>
     <script type="module" src="render3D/JS/index3DScreen1.js" defer="defer"></script>
 </html>

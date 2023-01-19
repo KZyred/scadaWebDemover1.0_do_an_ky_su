@@ -10,6 +10,14 @@
         <!-- //loading -->
         <div class="loadingio-spinner-double-ring-nzbwkaq6i3" id ="hiden-loading"><div class="ldio-58h4ty3tidc"><div></div><div></div><div><div></div></div><div><div></div></div></div></div>
     </body>
-    <script src="js/FC5_Screen2.js"></script>
+    <script>
+        const element = document.getElementById("Screen_1");
+        if (element.clientHeight < window.innerHeight) {
+            element.style.height = "100%";
+        } else if (element.clientHeight >= window.innerHeight) {
+            element.style.height = `"${element.clientHeight}px"`;
+        }
+    </script>
+    <script src="js_xu_li_tin_hieu/FC5_Screen2.js"></script>
     <script type="module" src="render3D/JS/index3DScreen2.js" defer="defer"></script>
 </html>
