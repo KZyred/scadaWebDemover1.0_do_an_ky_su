@@ -1,14 +1,26 @@
-<!-- //////////////Code cho màn hình 1////////////// -->
-<div id="screen_3DtramTQ">
-    <!-- <div class="grid wide">
-        <div class="row column-reverse">
-            <div class="col l-12 m-12 c-12">
-                <canvas class="_3dHome"></canvas>
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+    <%- include('./navbar_footer'); %>
+        <div ui-view class="app-body" id="view">
+
+            <!-- ############ PAGE START-->
+            <div class="padding">
+                <div class="row">
+                    <div class="col-md-12 col-xl-12">
+                        <div class="box">
+                            <div id="_3dHome_HW">
+                                <canvas class="_3dHome"></canvas>
+                            </div>
+                            <div>
+                                <button id="ban_dau" class="button_3D">Góc ban đầu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- ############ PAGE END-->
+
         </div>
-    </div> -->
-    <div>
-        <button id="ban_dau" class="button_3D">Góc ban đầu</button>
-    </div>
-    <canvas class="_3dHome"></canvas>
 </div>
+<!-- / -->

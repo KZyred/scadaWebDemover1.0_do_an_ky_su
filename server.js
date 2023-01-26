@@ -12,6 +12,7 @@ const methodOverride = require('method-override')
 app.use(express.static("public"));  // pulic thư viện express
 app.set("view engine", "ejs");		//gọi file ejs (đã tạo home.ejs) , // để có thể sử dụng cú pháp của ejs ( {name: 'K_zyred'} => <%= name %> )
 app.set("views", "./views");		// gọi thư mục view đã tạo
+
 var server = require("http").Server(app);  // gọi liên kết kết nối dạng http
 var io = require("socket.io")(server);	// gọi chương trình đọc dữ liệu theo thời gian thực socket.io
 
@@ -62,6 +63,10 @@ app.get('/', checkAuthenticated, (req, res) => {
 /////////////////////////////////////////////////////////////////////////////
 app.get('/tramTQ', checkAuthenticated, (req, res) => {
   res.render('3DtramTQ.ejs', { name: req.user.name })
+})
+/////////////////////////////////////////////////////////////////////////////
+app.get('/dashBoard', checkAuthenticated, (req, res) => {
+  res.render('dashBoard.ejs', { name: req.user.name })
 })
 /////////////////////////////////////////////////////////////////////////////
 app.get('/tram1', checkAuthenticated, (req, res) => {
@@ -171,7 +176,7 @@ var options = {
   protocol: 'mqtts',
   username: process.env.username_MQTT,
   password: process.env.password_MQTT,
-  clientId: 'AAA++'
+  clientId: 'AAA+++'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);
@@ -347,6 +352,8 @@ io.on("connection", function (socket) {
 io.on("connection", function (socket) {
   socket.on("msg_SQL_ByTime", function (data) {
     var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset time Việt Nam (GMT7+)
+    // var tzoffset = (new Date()).getTimezoneOffset() * 0; //offset time Việt Nam (GMT7+)
+
     // Lấy thời gian tìm kiếm từ date time piker
     var timeS = new Date(data[0]); // Thời gian bắt đầu
     var timeE = new Date(data[1]); // Thời gian kết thúc
@@ -354,7 +361,6 @@ io.on("connection", function (socket) {
     var timeS1 = "'" + (new Date(timeS - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
     var timeE1 = "'" + (new Date(timeE - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
     var timeR = timeS1 + "AND" + timeE1; // Khoảng thời gian tìm kiếm (Time Range)
-
     var sqltable_Name = tableName; // Tên bảng
     var dt_col_Name = "_TIMESTAMP";  // Tên cột thời gian
 

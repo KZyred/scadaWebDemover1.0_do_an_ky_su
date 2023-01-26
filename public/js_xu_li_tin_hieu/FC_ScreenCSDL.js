@@ -1,13 +1,23 @@
-
 var socket = io.connect()
-
+var aoData = [];
 // Yêu cầu dữ liệu bảng
 function fn_Table01_SQL_Show(){
     socket.emit("msg_SQL_Show", "true");
     socket.on('SQL_Show',function(data){
         fn_table_01(data);
+        $('#table_01').dataTable({ 
+                data: aoData,
+                destroy: true,
+                aoColumns: [
+                    { mData: 'id' },
+                    { mData: '_NAME' },
+                    { mData: '_VALUE' },
+                    { mData: '_TIMESTAMP' },
+                    { mData: '_QUALITY' }
+                ]
+        })
+        document.getElementById("btt_Refresh").classList.remove("button--loading")
     }); 
-    document.getElementById("hiden-loading").style.display = "none";
 }
 
 // kết nối lại với database
@@ -16,7 +26,7 @@ function reConnect_mySQL(){
 }
 
 // hiện dữ liệu ngay khi mới bắt đầu vào
-fn_Table01_SQL_Show()
+// fn_Table01_SQL_Show()
 socket.on('reConnect_mySQL_toClient',function(){
     const btn = document.getElementById("buttonReload");
     setTimeout('btn.classList.remove("button--loading")', 1000); //thực thi sau 1s
@@ -25,29 +35,18 @@ socket.on('reConnect_mySQL_toClient',function(){
 // Hiển thị dữ liệu ra bảng
 function fn_table_01(data){
     if(data){
-        $("#table_01 tbody").empty(); 
         var len = data.length;
-        var txt = "<tbody>";
+        aoData = []
         if(len > 0){
             for(var i=len-1;i>=0;i--)
             {
-                if (data[i]._QUALITY == 192) {
-                    var QUALITY = "good"
+                if ((data[i]._QUALITY == 192) || (data[i]._QUALITY =="tốt")) {
+                    data[i]._QUALITY = "tốt"
                 }
                 else {
-                    var QUALITY = "bad"
+                    data[i]._QUALITY = "kém"
                 }
-                txt +="<tr><td>"+data[i].id
-                    +"</td><td>"+data[i]._NAME
-                    // +"</td><td>"+data[i]._NUMERICID
-                    +"</td><td>"+data[i]._VALUE
-                    +"</td><td>"+data[i]._TIMESTAMP
-                    +"</td><td>"+QUALITY
-                    +"</td></tr>";
-            }
-            if(txt != ""){
-                txt +="</tbody>"; 
-                $("#table_01").append(txt);
+                aoData.push(data[i]);
             }
         }
     }   
@@ -58,11 +57,22 @@ function fn_SQL_By_Time()
 {
     var val = [document.getElementById('dtpk_Search_Start').value,
                document.getElementById('dtpk_Search_End').value];
-    console.log(val[0]);
     if (val[0] != "" && val[1] !=""){
         socket.emit('msg_SQL_ByTime', val);
         socket.on('SQL_ByTime', function(data){
             fn_table_01(data); // Show sdata
+            $('#table_01').dataTable({ 
+                data: aoData,
+                destroy: true,
+                aoColumns: [
+                    { mData: 'id' },
+                    { mData: '_NAME' },
+                    { mData: '_VALUE' },
+                    { mData: '_TIMESTAMP' },
+                    { mData: '_QUALITY' }
+                ]
+            })
+            document.getElementById("btt_Search").classList.remove("button--loading")
         });
     }
 }

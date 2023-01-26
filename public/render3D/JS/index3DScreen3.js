@@ -4,32 +4,14 @@ import { OrbitControls } from "./OrbitControls.js";
 
 let canvas, ID_home, glb_loader
 let scene, camera, renderer, controls;
-
+const element = document.getElementById("_3dTram3_HW");
 function init() {
     // độ rộng khung hình chứa
     var sizes = {
-        width: 500,
-        height: 500, 
+        width: element.clientWidth,
+        height: element.clientWidth
     }
-    if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
-        sizes.width = 269
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
-        sizes.width = 300
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
-        sizes.width = 350
-        sizes.height = 300
-    } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
-        sizes.width = 410
-        sizes.height = 410
-    } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
-        sizes.width = 450
-        sizes.height = 450
-    } else if ((window.innerWidth >= 1450)){
-        sizes.width = 500
-        sizes.height = 500
-    } 
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 
@@ -74,11 +56,6 @@ function init() {
     let car
     loader.load('render3D/3D_tram3/tram_ban_xoay.glb', function(glb){
         // console.log(glb)
-        ///////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////
-        document.getElementById("hiden-loading").style.display = "none";
-        ///////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////
         car = glb.scene;
         // tỉ lệ
         car.scale.set(3,3,3);

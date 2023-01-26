@@ -1,121 +1,15 @@
-/*Màn hình 2*/
-#Screen_CSDL {
-    position: absolute;
-    left: 220px;
-    height: 100%;
-    /* width: 100%; */
-    background-color: #9a9a9a;
-}
-@media (width < 580px) {
-    #Screen_CSDL {
-        left: 80px;
-    }
-}
-/*//////////////Hiển thị dữ liệu bảng 1 - Start/////////////////*/
-#div_Table_01 {
-    position: absolute;
-    left: 14px;
-    top: 145px;
-    width: 88%;
-    height: 80%;
-    overflow-y: scroll;
-}
-
-/*Table*/
-#table_01 {
-    position: absolute;
-    width: 100%;
-}
-
-#table_01 tr {
-    cursor: pointer;
-    text-align: center;
-}
-
-#table_01 tr:hover {
-    background-color: #ddd;
-}
-
-#table_01 {
-    overflow: auto;
-}
-
-#table_01 thead th {
-    position: sticky;
-    top: 0;
-}
-
-/* Just common table stuff. Really. */
-#table_01 {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#table_01 th,
-td {
-    padding: 8px 16px;
-}
-
-#table_01 th {
-    background: #eee;
-}
-
-/*//////////////TRƯỜNG TÌM KIẾM DỮ LIỆU/////////////////*/
-/*Lable tìm kiếm từ*/
-#lb_Search_Start {
-    color: rgb(26, 24, 24);
-    font-size: 14px;
-    font-weight: normal;
-    position: absolute;
-    left: 15px;
-    top: 5px;
-}
-
-/*Chọn ngày tháng bắt đầu*/
-#dtpk_Search_Start {
-    text-align: left;
-    position: absolute;
-    left: 15px;
-    top: 25px;
-}
-
-/*Lable tìm kiếm đến*/
-#lb_Search_End {
-    color: rgb(26, 24, 24);
-    font-size: 14px;
-    font-weight: normal;
-    position: absolute;
-    left: 15px;
-    top: 55px;
-}
-
-/*Chọn ngày tháng kết thúc*/
-#dtpk_Search_End {
-    text-align: left;
-    position: absolute;
-    left: 15px;
-    top: 75px;
-}
 /* /////////////////////////////////////////////////////////// */
 /* Nút tìm kiếm */
 #btt_Search {
     width: 115px;
     height: 36px;
-    left: 16px;
-    top: 104px;
 }
 #btt_Refresh {
-    position: absolute;
-    width: 100px;
+    /* width: 100px; */
     height: 36px;
-    left: 136px;
-    top: 104px;
 } 
 #buttonReload {
-    position: absolute;
-    left: 250px;
-    top: 104px;
-    width: 66px;
+    /* width: 66px; */
     height: 36px;
 }
 .buttonCSDL {
@@ -126,6 +20,7 @@ td {
     outline: none;
     border-radius: 2px;
     cursor: pointer;
+    margin-inline: 10px;
 }
 .buttonCSDL:active {
     background: #32421e;
@@ -145,7 +40,7 @@ td {
 }
 
 .button__text {
-    font: bold 16px "Quicksand", san-serif;
+    font: 13px "Quicksand", san-serif;
     color: #ffffff;
     transition: all 0.2s;
 }

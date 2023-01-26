@@ -9,7 +9,9 @@ let done_load_3D = false;
 let speed_quay = 8;
 let speed_capPhoi = 5;
 let diChuyenCaHe = 0.5;
-
+const element = document.getElementById("_3dTram1_HW");
+// let text = "clientHeight: " + element.clientHeight + "px<br>";
+// text += "clientWidth: " + element.clientWidth + "px";
 function changeColorObject( Object, colorObject ) {
     Object.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
@@ -21,28 +23,28 @@ function changeColorObject( Object, colorObject ) {
 async function init() {
     // độ rộng khung hình chứa
     var sizes = {
-        width: 500,
-        height: 500, 
+        width: element.clientWidth,
+        height: element.clientWidth
     }
-    if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
-        sizes.width = 269
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
-        sizes.width = 300
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
-        sizes.width = 350
-        sizes.height = 300
-    } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
-        sizes.width = 410
-        sizes.height = 410
-    } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
-        sizes.width = 450
-        sizes.height = 450
-    } else if ((window.innerWidth >= 1450)){
-        sizes.width = 500
-        sizes.height = 500
-    } 
+    // if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
+    //     sizes.width = 269
+    //     sizes.height = 250
+    // } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
+    //     sizes.width = 300
+    //     sizes.height = 250
+    // } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
+    //     sizes.width = 350
+    //     sizes.height = 300
+    // } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
+    //     sizes.width = 410
+    //     sizes.height = 410
+    // } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
+    //     sizes.width = 450
+    //     sizes.height = 450
+    // } else if ((window.innerWidth >= 1450)){
+    //     sizes.width = 500
+    //     sizes.height = 500
+    // } 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 
@@ -81,11 +83,11 @@ async function init() {
 
     await Promise.all([
         await loader.load('render3D/3D_Tram1/Tram_cap_phoi_thieu.glb', function (glb) {
-            ///////////////////////////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////////////////////////
-            document.getElementById("hiden-loading").style.display = "none";
-            ///////////////////////////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////////////////////////
+            // ///////////////////////////////////////////////////////////////////////////////////////
+            // ///////////////////////////////////////////////////////////////////////////////////////
+            // document.getElementById("hiden-loading").style.display = "none";
+            // ///////////////////////////////////////////////////////////////////////////////////////
+            // ///////////////////////////////////////////////////////////////////////////////////////
             // tỉ lệ
             Tram_cap_phoi_thieu = glb.scene
             Tram_cap_phoi_thieu.scale.set(1, 1, 1);

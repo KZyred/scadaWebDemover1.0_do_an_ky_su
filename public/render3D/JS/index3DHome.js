@@ -26,6 +26,7 @@ let diChuyen_Z = 0.34;
 let xoay = true;
 let goc_xoay = 0;
 let i = 6;
+const element = document.getElementById("_3dHome_HW");
 var materialBase = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x111111, shininess: 200 });
 function changeColorObject( Object, colorObject ) {
     Object.traverse(function (child) {
@@ -35,38 +36,19 @@ function changeColorObject( Object, colorObject ) {
         }
     });
 }
-
 async function init() {
     // độ rộng khung hình chứa
     var sizes = {
-        width: 1660,
-        height: 907, 
+        width: element.clientWidth,
+        height: element.clientWidth
     }
-    if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
-        sizes.width = 269
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
-        sizes.width = 300
-        sizes.height = 250
-    } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
-        sizes.width = 350
-        sizes.height = 300
-    } else if ( (window.innerWidth >= 739) && (window.innerWidth < 1024) ) {
-        sizes.width = 550
-        sizes.height = 650
-    } else if ( (window.innerWidth >= 1024) && (window.innerWidth < 1239) ) {
-        sizes.width = 800
-        sizes.height = 690
-    } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
-        sizes.width = 1000
-        sizes.height = 690
-    } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
-        sizes.width = 1000
-        sizes.height = 690
-    } else if ((window.innerWidth >= 1450) && (window.innerWidth < 1650) ){
-        sizes.width = 1280
-        sizes.height = 699
-    } 
+    if (element.clientWidth < window.innerHeight) {
+        sizes.width = element.clientWidth
+        sizes.height = element.clientWidth
+    } else if (element.clientWidth >= window.innerHeight) {
+        sizes.width = element.clientWidth
+        sizes.height = window.innerHeight - 119
+    }
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 
