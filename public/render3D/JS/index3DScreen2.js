@@ -268,7 +268,11 @@ function animate() {
     }
 }
 // phải viết các hàm đọc sự kiện đứng trước {init (hàm lặp vô tận)}
-
+document.getElementById("ban_dau").onclick = function() {
+    // ban đầu
+    camera.position.set(1, 1.52, -0.8);
+    controls.update();  
+};
 ID_home = '._3dTram2'
 canvas = document.querySelector(ID_home)
 init();

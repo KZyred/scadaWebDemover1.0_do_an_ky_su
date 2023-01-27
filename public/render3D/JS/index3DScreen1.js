@@ -8,7 +8,7 @@ let modul_tayquay,giac_hut,xilanh_day,Phoi_cao_Mau_do_day, Phoi_cao_Mau_do_quay,
 let done_load_3D = false;
 let speed_quay = 8;
 let speed_capPhoi = 5;
-let diChuyenCaHe = 0.5;
+let diChuyenCaHe = 0.4;
 const element = document.getElementById("_3dTram1_HW");
 // let text = "clientHeight: " + element.clientHeight + "px<br>";
 // text += "clientWidth: " + element.clientWidth + "px";
@@ -26,34 +26,16 @@ async function init() {
         width: element.clientWidth,
         height: element.clientWidth
     }
-    // if ( (window.innerWidth >= 0) && (window.innerWidth < 388) ){
-    //     sizes.width = 269
-    //     sizes.height = 250
-    // } else if ( (window.innerWidth >= 388) && (window.innerWidth < 460) ) {
-    //     sizes.width = 300
-    //     sizes.height = 250
-    // } else if ( (window.innerWidth >= 460) && (window.innerWidth < 739) ) {
-    //     sizes.width = 350
-    //     sizes.height = 300
-    // } else if ( (window.innerWidth >= 1239) && (window.innerWidth < 1330) ){
-    //     sizes.width = 410
-    //     sizes.height = 410
-    // } else if ( (window.innerWidth >= 1330) && (window.innerWidth < 1450) ){
-    //     sizes.width = 450
-    //     sizes.height = 450
-    // } else if ((window.innerWidth >= 1450)){
-    //     sizes.width = 500
-    //     sizes.height = 500
-    // } 
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9a9a9a);
 
     // gần xa camera
     camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.01, 10000)
     //vị trí camera
-    camera.position.x = 1;
-    camera.position.y = 1.2;
-    camera.position.z = 1;
+    camera.position.x = 1.1;
+    camera.position.y = 1.3;
+    camera.position.z = 1.0;
     scene.add(camera)
     
     controls = new OrbitControls(camera,canvas);
@@ -215,7 +197,11 @@ function animate() {
     }
 }
 // phải viết các hàm đọc sự kiện đứng trước {init (hàm lặp vô tận)}
-
+document.getElementById("ban_dau").onclick = function() {
+    // ban đầu
+    camera.position.set(1.1, 1.3, 1.0);
+    controls.update();  
+};
 ID_home = '._3dTram1'
 canvas = document.querySelector(ID_home)
 init();

@@ -86,24 +86,24 @@ async function init() {
     renderer.gammaOutput = true
 
     let loader = new GLTFLoader();
-    ////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
-    ///////////////////////////tram 1/////////////////////////////////////
-    ////////////////////////////////////////////////////////////////
-    await loader.load('render3D/3D/3 tram dau.glb', function (glb) {
-        // tỉ lệ
-        _3_Tram_Dau = glb.scene
-        _3_Tram_Dau.scale.set(1, 1, 1);
-        // vị trí vật
-        _3_Tram_Dau.position.x = 0 + diChuyen_X;
-        _3_Tram_Dau.position.y = 0 + diChuyen_Y;
-        _3_Tram_Dau.position.z = 0 + diChuyen_Z;
-        scene.add(_3_Tram_Dau); // thêm vào màn hình
-        done_load_3D = true;
-    })
     await Promise.all([
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        ///////////////////////////tram 1/////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        await loader.load('render3D/3D/3 tram dau.glb', function (glb) {
+            // tỉ lệ
+            _3_Tram_Dau = glb.scene
+            _3_Tram_Dau.scale.set(1, 1, 1);
+            // vị trí vật
+            _3_Tram_Dau.position.x = 0 + diChuyen_X;
+            _3_Tram_Dau.position.y = 0 + diChuyen_Y;
+            _3_Tram_Dau.position.z = 0 + diChuyen_Z;
+            scene.add(_3_Tram_Dau); // thêm vào màn hình
+            done_load_3D = true;
+        }),
         await loader.load('render3D/3D_Tram1/xilanh_day.glb', function (glb) {
             xilanh_Day_T1 = glb.scene
             // tỉ lệ
