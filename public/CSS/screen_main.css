@@ -198,8 +198,8 @@
     color: rgb(36, 36, 36);
 }
 #Mau_Auto {
-    font-size: 23px;
-    padding: 18px 10px;
+    /* font-size: 23px; */
+    /* padding: 18px 10px; */
     font-weight: bolder;
     outline: none;
     font-family: 'Times New Roman', Times, serif;
