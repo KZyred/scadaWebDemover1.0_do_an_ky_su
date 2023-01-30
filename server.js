@@ -176,7 +176,7 @@ var options = {
   protocol: 'mqtts',
   username: process.env.username_MQTT,
   password: process.env.password_MQTT,
-  clientId: 'AAA++++++'
+  clientId: 'AAA++++++++++++++++++++'
 }
 // thiết lập kết nối với Broker
 var client = mqtt.connect(options);
@@ -374,6 +374,27 @@ io.on("connection", function (socket) {
         const objectifyRawPacket = row => ({ ...row });
         const convertedResponse = results.map(objectifyRawPacket);
         socket.emit('SQL_ByTime', convertedResponse);
+      }
+    });
+  });
+});
+
+// Tìm kiếm dữ liệu SQL theo _NAME và _VALUE
+io.on("connection", function (socket) {
+  socket.on("msg_SQL_By_NAME_VALUE", async function (data) {
+    var sqltable_Name = tableName; // Tên bảng
+    var tram1 = `'TCP_IP_tram.tramChu.Tram01_CBXLDay','TCP_IP_tram.tramChu.Tram01_CBXLThu','TCP_IP_tram.tramChu.Tram01_CBHTNhaPhoi','TCP_IP_tram.tramChu.Tram01_CBHTVTHutPhoi'`
+    var tram2 = `'TCP_IP_tram.tram2.Tram02_CbXLDuoi','TCP_IP_tram.tram2.Tram02_CbXLtren','TCP_IP_tram.tram2.Tram02_XLDanPhoi','TCP_IP_tram.tram2.Tram02_XLDay'`
+    var tram3 = `'TCP_IP_tram.tramChu.tram03_KhoanDiXuong','TCP_IP_tram.tramChu.Tram03_DapPhoi','TCP_IP_tram.tramChu.Tram03_GatPhoi','TCP_IP_tram.tramChu.Tram03_KepPhoi','TCP_IP_tram.tramChu.Tram03_BanXoay'`
+    var _Group_Names = `(${tram1},${tram2},${tram3})`;  // Tên cột thời gian
+    var Query = "Select _NAME,COUNT(_NAME) From " + sqltable_Name + " Where _NAME in " + _Group_Names + "  Group by _NAME,_VALUE HAVING _VALUE  = 0; ";
+    await sqlcon.query(Query, function (err, results, fields) {
+      if (err) {
+        console.log(err);
+      } else {
+        const objectifyRawPacket = row => ({ ...row });
+        const convertedResponse = results.map(objectifyRawPacket);
+        socket.emit('SQL_By_NAME_VALUE', convertedResponse);
       }
     });
   });
