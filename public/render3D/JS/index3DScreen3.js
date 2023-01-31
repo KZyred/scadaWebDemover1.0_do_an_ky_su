@@ -237,7 +237,6 @@ async function init() {
             changeColorObject(khoan_T3, 0x7393B3)
             scene.add(khoan_T3); // thêm vào màn hình
         }),
-    
         await loader.load('render3D/3D_tram3/gat_Phoi.glb', function (glb) {
             gat_Phoi_T3 = glb.scene;
             // tỉ lệ
