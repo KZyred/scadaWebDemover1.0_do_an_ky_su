@@ -372,6 +372,18 @@ async function init() {
             ////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////
         }),
+        await loader.load('render3D/3D_tram3/gatPhoi.glb', function (glb) {
+            gat_Phoi_T3 = glb.scene;
+            // tỉ lệ
+            gat_Phoi_T3.scale.set(1, 1, 1);
+            gat_Phoi_T3.position.x = 0.0728704 + diChuyen_X; 
+            gat_Phoi_T3.position.y = 0.845 + diChuyen_Y;
+            gat_Phoi_T3.position.z = -0.837245304386 + diChuyen_Z;
+            gat_Phoi_T3.rotation.y = 122.01715249 * (Math.PI / 180);
+            changeColorObject(gat_Phoi_T3, 0xFF4500)
+            // Phoi_cao_Mau_do.visible = false
+            scene.add(gat_Phoi_T3); // thêm vào màn hình
+        }),
         await loader.load('render3D/3D_tram3/dot_phoi.glb', function (glb) {
             dot_Phoi_T3 = glb.scene;
             // tỉ lệ
@@ -406,19 +418,6 @@ async function init() {
             khoan_T3.rotation.y = 29.52994997 * (Math.PI / 180);
             changeColorObject(khoan_T3, 0x7393B3)
             scene.add(khoan_T3); // thêm vào màn hình
-        }),
-    
-        await loader.load('render3D/3D_tram3/gat_Phoi.glb', function (glb) {
-            gat_Phoi_T3 = glb.scene;
-            // tỉ lệ
-            gat_Phoi_T3.scale.set(1, 1, 1);
-            gat_Phoi_T3.position.x = 0.0728704 + diChuyen_X; 
-            gat_Phoi_T3.position.y = 0.845 + diChuyen_Y;
-            gat_Phoi_T3.position.z = -0.837245304386 + diChuyen_Z;
-            gat_Phoi_T3.rotation.y = 122.01715249 * (Math.PI / 180);
-            changeColorObject(gat_Phoi_T3, 0xFF4500)
-            // Phoi_cao_Mau_do.visible = false
-            scene.add(gat_Phoi_T3); // thêm vào màn hình
         }),
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
