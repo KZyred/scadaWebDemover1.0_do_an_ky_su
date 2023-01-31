@@ -465,17 +465,17 @@ function animate() {
                 }
         }
         // thu phôi vào
-        let gioi_han_xy_lanh_thu = -0.0845 + diChuyen_X
+        let gioi_han_xy_lanh_thu = -0.0800 + diChuyen_X;
         if (  _3PV4 == false && _3PV5 == true ) {
             if ( xilanh_Day_T1.position.x > gioi_han_xy_lanh_thu)
             {
-                xilanh_Day_T1.position.x = xilanh_Day_T1.position.x - 0.002* speed_capPhoi;
-                phoiT1_Day.position.x = phoiT1_Day.position.x - 0.002* speed_capPhoi; 
+                xilanh_Day_T1.position.x = xilanh_Day_T1.position.x - 0.003* speed_capPhoi;
+                phoiT1_Day.position.x = phoiT1_Day.position.x - 0.003* speed_capPhoi; 
                 phoiT1_Day.visible = false; 
             }
         }
         // đẩy phôi ra
-        let gioi_han_xy_lanh_day = -0.0075 + diChuyen_X
+        let gioi_han_xy_lanh_day = -0.0075 + diChuyen_X;
         if ( _3PV4 == true && _3PV5 == false ) {
             if ( xilanh_Day_T1.position.x < gioi_han_xy_lanh_day)
             {
@@ -511,7 +511,7 @@ function animate() {
     
         // đang mắc ở đây
         ////////////////////////////////////////////////////////////////////////////////
-        if ((_2_2B1 == true) && (_2_3B1 == false) && (_2_3PV2 == false)) {
+        if ((_2_2B1 == true) && (_2_3B1 == false)) {
             phoi_Len_Xuong_T2.visible = true;
         }
         ////////////////////////////////////////////////////////////////////////////////
@@ -688,7 +688,7 @@ function animate() {
         ////////////////////////////////////////////////////////////////
         // tạm bỏ && _3_2B2 == false
         // && _3_2B2 == false
-        if ( _3_2B1 == true && _3_2B3 == false) {
+        if ( _3_2B1 == true && _3_2B2 == false) {
         // nếu phôi xuất hiện ở trạm 3 thì phôi máng trượt trạm 2 mất đi
         // Phoi_cao_Mau_do_xoay_6.visible == true
         // chọn 1 trong 2 cái sau về false cũng oki
