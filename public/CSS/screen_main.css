@@ -93,8 +93,8 @@
 .button_style_TTT {
     padding: 10px 20px;
     margin: 5px;
-    height: 50px;
-    width: 150px;
+    /* height: 50px; */
+    /* width: 150px; */
     background-color: #808080;
     color: #fff;
     font-size: 16px;
@@ -106,6 +106,14 @@
     font-family: system-ui;
     text-align: center;
     border-left: 12px solid #d8183e;
+}
+.button_style_TTT_cha {
+    justify-content: center;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    text-align: center;
+    border: 1px solid #2e2123;
 }
 
 .container_button_TTT {
@@ -175,7 +183,7 @@
 }
 
 .container_button_CĐ {
-    width: 220px;
+    width: 244px;
     margin: 5px auto;
     /* padding-block: 10px; */
     /*vertical padding */
@@ -208,7 +216,7 @@
     left: 0;
     top: 0;
     position: absolute;
-    width: 110px;
+    width: 136px;
     height: 100%;
     background: #e67e22;
     border-radius: 30px;

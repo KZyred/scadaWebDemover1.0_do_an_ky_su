@@ -11,14 +11,14 @@
                     <div style="margin: auto;">
                         <div class="box container_CĐ">
                             <div class="box-header text-center border_bottom">
-                                <div style="font-size: 29px;" id="Mau_Auto">Chế độ hoạt động: Maunual</div>
+                                <div style="font-size: 29px;" id="Mau_Auto">Chế độ hoạt động: Thủ Công</div>
                             </div>
                             <div class="box-body">
                                 <div class="container_button_CĐ">
                                     <!-- div btn khoảng màu di chuyển giữa hai button -->
                                     <div id="btn_CĐ"></div>
-                                    <button type="button" class="toggle-btn_CĐ" onclick="leftClick()">Maunual</button>
-                                    <button type="button" class="toggle-btn_CĐ" onclick="rightClick()">Auto</button>
+                                    <button type="button" class="toggle-btn_CĐ" onclick="leftClick()">Thủ công</button>
+                                    <button type="button" class="toggle-btn_CĐ" onclick="rightClick()">Tự động</button>
                                 </div>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                     <div style="margin: auto;">
                         <div class="box container_ĐK">
                             <div class="box-header text-center border_bottom" id="Mau_Auto">
-                                <div style="font-size: 29px;">Điều khiển Auto</div>
+                                <div style="font-size: 29px;">Điều khiển tự động</div>
                             </div>
                             <div class="box-tool">
                                 <ul class="nav">
@@ -39,12 +39,12 @@
                             </div>
                             <div class="box-body">
                                 <div class="container_button_ĐK">
-                                    <button disabled class="button_style_ĐK" id="start">Start</button>
-                                    <button disabled class="button_style_ĐK" id="stop">Stop</button>
-                                    <button disabled class="button_style_ĐK" id="reset">Reset</button>
+                                    <button disabled class="button_style_ĐK" id="start">Khởi chạy</button>
+                                    <button disabled class="button_style_ĐK" id="stop">Dừng</button>
+                                    <button disabled class="button_style_ĐK" id="reset">Chạy lại</button>
                                 </div>
                                 <div id="trangthai">
-                                    <p>Not Running</p>
+                                    <p>Không hoạt động...</p>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                     <div class="col-xs-1 col-md-2 col-sm-1">
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div style="margin: auto;">
                         <div class="box">
                             <div class="box-header text-center border_bottom" id="Mau_Auto">
@@ -78,6 +78,100 @@
                                     <button class="button_style_TTT" id="tram07">Trạm 07+08</button>
                                     <button class="button_style_TTT" id="tram09">Trạm 09</button>
                                     <button class="button_style_TTT" id="tram10">Trạm 10</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div style="margin: auto;" class="col-md-10 offset-md-3">
+                        <div class="box">
+                            <div class="box-header text-center border_bottom" id="Mau_Auto">
+                                <div style="font-size: 29px;">Trạng thái các trạm</div>
+                            </div>
+                            <div class="box-tool">
+                                <ul class="nav">
+                                    <li class="nav-item inline">
+                                        <a class="nav-link">
+                                            <i class="material-icons md-18">&#xe863;</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 01</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t1.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 02</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t2.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 03</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t3.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 04</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t4.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 05</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t5.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 06</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t6.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 07+08</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t8.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 09</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t7.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <div class="box p-a-xs button_style_TTT_cha">
+                                            <div class="p-a-sm button_style_TTT" id="tram01">
+                                                <div class="text-ellipsis">Trạm 10</div>
+                                            </div>
+                                            <a href="#"><img src="../assets/images/t9.png" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

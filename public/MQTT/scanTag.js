@@ -8,7 +8,7 @@ function find(payload_parse,id) {
 // kiểm tra subscribe, topic tương ứng true thì ..., fale thì ...
 function fn_btt_mau_au(data){
     if(data == true){
-        document.getElementById("Mau_Auto").innerHTML = 'Chế độ hoạt động: Auto';
+        document.getElementById("Mau_Auto").innerHTML = 'Chế độ hoạt động: Tự động';
         btn_CĐ.style.left = '110px'
         // tăng độ mờ 
         container_ĐK.style.opacity = 1;
@@ -17,7 +17,7 @@ function fn_btt_mau_au(data){
         btnStop.disabled = false
         btnReset.disabled = false
     } else{
-        document.getElementById("Mau_Auto").innerHTML = 'Chế độ hoạt động: Maunual';
+        document.getElementById("Mau_Auto").innerHTML = 'Chế độ hoạt động: Thủ công';
         btn_CĐ.style.left = '0'
         // giảm độ mờ
         container_ĐK.style.opacity = 0.7;
@@ -28,7 +28,7 @@ function fn_btt_mau_au(data){
         btnStart.style.backgroundColor = defaul
         btnStop.style.backgroundColor = defaul
         btnReset.style.backgroundColor = defaul
-        document.getElementById("trangthai").innerHTML = 'Not Running';
+        document.getElementById("trangthai").innerHTML = 'Không hoạt động...';
         container_ĐK.style.boxShadow = "0 8px 16px 0 gray, 0 6px 20px 0 gray";
         container_ĐK.style.border = "3px solid gray";
     }
@@ -41,7 +41,7 @@ function fn_container_Start(data){
         btnStart.style.backgroundColor = start
         btnStop.style.backgroundColor = defaul
         btnReset.style.backgroundColor = defaul
-        document.getElementById("trangthai").innerHTML = 'Running';
+        document.getElementById("trangthai").innerHTML = 'Đang hoạt động';
 
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"Channel2.Device1.btt_Start","v":false}]` })
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":false}]` })
@@ -55,7 +55,7 @@ function fn_container_Stop(data){
     if(data == true){
         document.querySelector(".container_ĐK").style.boxShadow = "0 8px 16px 0 #d8183e, 0 6px 20px 0 #d8183e";
         document.querySelector(".container_ĐK").style.border = "3px solid #d8183e";
-        document.getElementById("trangthai").innerHTML = 'STOP';
+        document.getElementById("trangthai").innerHTML = 'Đã dừng';
         btnStop.style.backgroundColor = stop
         btnStart.style.backgroundColor = defaul
         btnReset.style.backgroundColor = defaul
