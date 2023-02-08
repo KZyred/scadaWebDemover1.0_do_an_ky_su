@@ -184,3 +184,29 @@
         </div>
 </div>
 <!-- / -->
+<script>
+    $(document).ready(function () {
+
+            var audio = new Audio('../assets/images/click.mp3');
+            var audio2 = new Audio('../assets/images/clickUp.mp3')
+
+            $(".toggle-btn_CĐ").mousedown(function () {
+                audio2.load();
+                audio2.play();
+            });
+
+            $(".toggle-btn_CĐ").mouseup(function () {
+                audio.load();
+                audio.play();
+            });
+            $(".button_style_ĐK").mousedown(function () {
+                audio2.load();
+                audio2.play();
+            });
+
+            $(".button_style_ĐK").mouseup(function () {
+                audio.load();
+                audio.play();
+            });
+        });
+</script>
