@@ -20,7 +20,7 @@
 
 #start,
 #stop {
-    width: 108px;
+    width: 118px;
     padding-bottom: 15px;
 }
 
@@ -248,8 +248,8 @@
     .button_style_TTT {
         padding: 10px 20px;
         margin: 5px;
-        height: 39px;
-        width: 120px;
+        /* height: 39px; */
+        /* width: 120px; */
         font-size: 13px;
     }
     .column-reverse {
