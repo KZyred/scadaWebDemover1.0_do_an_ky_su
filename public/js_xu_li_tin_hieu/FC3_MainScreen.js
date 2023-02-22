@@ -94,7 +94,7 @@ async function leftClick() {
     btnStart.style.backgroundColor = defaul
     btnStop.style.backgroundColor = defaul
     btnReset.style.backgroundColor = defaul
-    document.getElementById("trangthai").innerHTML = 'Not Running';
+    document.getElementById("trangthai").innerHTML = 'Không hoạt động...';
     container_ĐK.style.boxShadow = "0 8px 16px 0 gray, 0 6px 20px 0 gray";
     container_ĐK.style.border = "3px solid gray";
     // gửi dữ liệu false để tag cmd_Mode_Manu_Auto
